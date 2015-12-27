@@ -12,41 +12,54 @@ http://www.w3school.com.cn/css/
     <link href="../css/main.css" rel="stylesheet" type="text/css">
 </head>
 <style type="text/css">
-    .container
+
+    input[type="text"]
     {
-        display: inline-block;
-        background-color: #b5b5b5;
-        width: 100px;
-        height: 100px;
-        line-height: 100%;
-        border-radius: 3px;
-        color: #ffffff;
-    }
-    .buttoncom
-    {
-        display: block;
-        background-color: #3366CC;
-        width:100px;
-        height: 40px;
-        line-height: 40px;
-        border-radius: 3px;
-        margin-top: 2px;
-        color: #ffffff;
-        text-align: center;
+        border-radius: 2px;
+        border-style: none;
+        padding: 16px 20px 16px 20px;
+
         font-size: 18px;
     }
-    .buttoncom:hover
+    input[type="submit"]
     {
-        background-color: #3366FF;
+        border-style: none;
+        border-radius: 2px;
+        padding: 16px 20px 16px 20px;
+        cursor: pointer;
+
+        background-color: #ff5000;
+        color: white;
+        font-size: 18px;
     }
+
 </style>
 <body>
-    <div class="buttoncom">
-        LOGIN
+    <div class="banner">
+        <div style="display: inline-block">Bug track</div>
+        <div style="display: inline-block; float: right; margin-right: 40px">
+            <form action="" name="search" method="post">
+                <input type="text" placeholder="search...">
+                <input type="submit" value="Go">
+            </form>
+        </div>
     </div>
-    <div class="buttoncom">
-        SIGNUP
+
+    <div class="menu">
+        <a class="menu-item" href="index.html">Computer</a>
+        <a class="menu-item" href="index.html">Document</a>
+        <a class="menu-item" href="index.html">Downloads</a>
     </div>
+    <br>
+    <br>
+    <div class="list">
+        <a class="list-item" href="index.html">All Bugs</a>
+        <a class="list-item" href="index.html">My Bugs</a>
+        <a class="list-item" href="index.html">Profile</a>
+    </div>
+    <br>
+    <br>
+    <a class="btn" href="#">Add To Shopping Cart</a>
 </body>
 
 </html>
