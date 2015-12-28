@@ -219,3 +219,8 @@ tr:hover
 {
     background-color: #d7f7f8;
 }
+/* different color of different row*/
+tr:nth-child(odd)
+{
+    background-color: #e8e8e8;
+}
