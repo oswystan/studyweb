@@ -1,6 +1,57 @@
 body
 {
     background-color: #e0e0e0;
+    font-family: skia;
+}
+
+.header
+{
+    display: block;
+    width: 100%;
+    padding:20px 0 20px 0;
+    margin: 0 0 2px 0;
+
+    background: -webkit-linear-gradient(top,  #0078b1 10%, #008cb1 100%);
+    background-color: #0090b1;
+    color: #ffffff;
+
+    font-size: 40px;
+    text-align: center;
+}
+.footer
+{
+    display: block;
+    width: 100%;
+    padding:20px 0 20px 0;
+    margin: 2px 0 0px 0;
+
+    background-color: #0090b1;
+    color: #ffffff;
+
+    font-size: 14px;
+    text-align: center;
+}
+.container
+{
+    display: inline-block;
+    border-radius: 2px;
+
+    color: #ffffff;
+    background-color: white;
+}
+.label
+{
+    color: #555555;
+    font-size: 18px;
+    padding: 8px 8px 8px 8px;
+}
+.pagenumber
+{
+    color: #555555;
+    font-size: 18px;
+    padding: 4px 8px 4px 8px;
+
+    text-decoration: none;
 }
 
 /*
@@ -13,7 +64,7 @@ body
 {
     display: block;
     width: 100%;
-    padding:20px 0 20px 0;
+    padding:20px 0 30px 0;
     min-width: 600px;
 
     background: -webkit-linear-gradient(top,  #0078b1 10%, #008cb1 100%);
@@ -23,7 +74,7 @@ body
     color: #ffffff;
     font-size: 30px;
 
-    font-family: "Yuanti SC";
+    font-family: "skia";
 }
 
 /*
@@ -68,7 +119,7 @@ body
     text-decoration: none;
     cursor: pointer;
 
-    font-family: "Yuanti SC";
+    font-family: "skia";
 }
 .menu-item
 {
@@ -102,11 +153,12 @@ body
 */
 input[type="text"], input[type="password"]
 {
-    border-radius: 2px;
     border-style: none;
+    border-radius: 2px;
     padding: 16px 20px 16px 20px;
 
     font-size: 18px;
+    font-family: skia;
     color: #555555;
 }
 input[type="submit"]
@@ -116,12 +168,54 @@ input[type="submit"]
     padding: 16px 20px 16px 20px;
     cursor: pointer;
 
-    background-color: #ff4d00;
-    color: white;
     font-size: 18px;
+    font-family: skia;
+    background-color: #ff4d00;
+    color: #ffffff;
 }
 input[type="submit"]:hover
 {
     background-color: #ff7d00;
 }
 
+/*
+***************************************************************
+*
+* table
+*
+***************************************************************
+*/
+
+table
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dddadb;
+    background-color: white;
+
+    font-size: 18px;
+}
+
+td, th
+{
+    border-style: none solid solid none;
+    border-width: 1px;
+    border-color: #dddadb;
+
+    margin: 0 0 0 0;
+    text-align: center;
+    height: 50px;
+    min-width: 80px;
+    max-width: 400px;
+}
+th
+{
+    border-width: 1px 0 1px 0;
+    background-color: #00bbde;
+    font-weight: normal;
+    color: white;
+}
+tr:hover
+{
+    background-color: #d7f7f8;
+}
