@@ -12,10 +12,12 @@ body
 .banner
 {
     display: block;
-    background-color: #464444;
     width: 100%;
     padding:20px 0 20px 0;
     min-width: 600px;
+
+    background: -webkit-linear-gradient(top,  #0078b1 10%, #008cb1 100%);
+    background-color: #0090b1;
 
     text-align: center;
     color: #ffffff;
@@ -30,106 +32,96 @@ body
 *
 ***************************************************************
 */
-.btn
+
+
+/*
+***************************************************************
+*
+* menus, list
+*
+***************************************************************
+*/
+.menu, .list, .btn
 {
     display: inline-block;
-    background-color: #827f7f;
-    border-style: none;
+    background-color: #4598ce;
     border-radius: 2px;
+    margin: 1px 0 0 0;
+    border-style: none;
+}
+
+.list
+{
+    min-width: 180px;
+}
+.menu-item, .list-item, .btn
+{
+    background-color: transparent;
     padding:16px 20px 16px 20px;
+    border: 0px none;
+    border-radius: 2px;
+    margin:0 0 0 0;
 
     color: #ffffff;
     text-align: center;
     font-size: 18px;
     text-decoration: none;
-    font-family: "Yuanti SC";
-}
-.btn:hover
-{
-    background-color: #9e9b9b;
-    cursor: pointer;      <!-- set mouse -->
-}
-.btn:active
-{
-    background-color: #908d8d;
-    cursor: pointer;      <!-- set mouse -->
-}
+    cursor: pointer;
 
-/*
-***************************************************************
-*
-* menus
-*
-***************************************************************
-*/
-.menu
-{
-    display: inline-block;
-    background-color: #827f7f;
-    border-radius: 3px;
-    margin: 1px 0 0 0;
+    font-family: "Yuanti SC";
 }
 .menu-item
 {
     display: inline-block;
-    background-color: transparent;
-    padding:16px 20px 16px 20px;
-    border: 0px none;
-    margin: 0px 0 0 0px;
-    border-radius: 3px;
-
-    color: #ffffff;
-    text-align: center;
-    font-size: 18px;
-    text-decoration: none;
-
-    font-family: "Yuanti SC";
-}
-.menu-item:hover
-{
-    background-color: #9e9b9b;
-}
-.menu-item:active
-{
-    background-color: #908d8d;
-}
-
-/*
-***************************************************************
-*
-* list style
-*
-***************************************************************
-*/
-.list
-{
-    display: inline-block;
-    background-color: #827f7f;
-    border-radius: 3px;
-    margin: 1px 0 0 0;
-    min-width: 180px;
 }
 .list-item
 {
     display: block;
-    background-color: transparent;
-    padding:16px 20px 16px 20px;
-    border: 0px none;
-    margin: 0px 0 0 0px;
-    border-radius: 3px;
+}
+.btn
+{
+    background-color: #4598ce;
+    display: inline-block;
+}
+.menu-item:hover, .list-item:hover, .btn:hover
+{
+    background-color: #00b5ff;
+}
+.menu-item:active, .list-item:active, .btn:active
+{
+    background-color: #00a4ff;
+}
 
-    color: #ffffff;
-    text-align: center;
+
+/*
+***************************************************************
+*
+* form input style
+*
+***************************************************************
+*/
+input[type="text"], input[type="password"]
+{
+    border-radius: 2px;
+    border-style: none;
+    padding: 16px 20px 16px 20px;
+
     font-size: 18px;
-    text-decoration: none;
+    color: #555555;
+}
+input[type="submit"]
+{
+    border-style: none;
+    border-radius: 2px;
+    padding: 16px 20px 16px 20px;
+    cursor: pointer;
 
-    font-family: "Yuanti SC";
+    background-color: #ff4d00;
+    color: white;
+    font-size: 18px;
 }
-.list-item:hover
+input[type="submit"]:hover
 {
-    background-color: #9e9b9b;
+    background-color: #ff7d00;
 }
-.list-item:active
-{
-    background-color: #908d8d;
-}
+

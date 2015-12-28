@@ -13,34 +13,52 @@ http://www.w3school.com.cn/css/
 </head>
 <style type="text/css">
 
-    input[type="text"]
+    .dashboard
     {
+        display: inline-block;
+        border-style: solid;
+        border-color: #d3d4d2;
+        border-width: 1px;
         border-radius: 2px;
-        border-style: none;
+        min-width: 400px;
+
+        max-height: 280px;
+        overflow: auto;
+    }
+    .dashboard .title, .row
+    {
+        display: block;
         padding: 16px 20px 16px 20px;
+        border-radius: 2px;
 
         font-size: 18px;
+        font-family: "Yuanti SC";
+    }
+    .dashboard .title
+    {
+        background-color: #4598ce;
+        text-align: center;
+        color: white;
+    }
+    .dashboard .row
+    {
+        border-style: none;
+        background-color: white;
         color: #555555;
     }
-    input[type="submit"]
-    {
-        border-style: none;
-        border-radius: 2px;
-        padding: 16px 20px 16px 20px;
-        cursor: pointer;
+    .dashboard .row:hover
+     {
+         background-color: #c2f7f5;
+     }
 
-        background-color: #ff5000;
-        color: white;
-        font-size: 18px;
-    }
 
 </style>
 <body>
     <div class="banner">
-        <div style="display: inline-block">Bug track</div>
+        <div style="display: inline-block">fixer</div>
         <div style="display: inline-block; float: right; margin-right: 20px">
             <form action="" name="search" method="post">
-                <input type="text" placeholder="search...">
+                <input type="text" placeholder="search something...">
                 <input type="submit" value="Go">
             </form>
         </div>
@@ -64,9 +82,46 @@ http://www.w3school.com.cn/css/
         <a class="list-item" href="index.html">Settings</a>
         <a class="list-item" href="index.html">Logout</a>
     </div>
+    <div class="dashboard">
+        <div class="title">Profiles</div>
+        <div class="row">name: this is wystan ok?</div>
+        <div class="row">school: Jilin University CS Major</div>
+        <div class="row">Words loved: Keep hungry, keep foolish</div>
+    </div>
+    <div class="dashboard">
+        <div class="title">Profiles</div>
+        <div class="row">name: this is wystan ok?</div>
+        <div class="row">school: Jilin University CS Major</div>
+        <div class="row">Words loved: Keep hungry, keep foolish</div>
+    </div>
+    <div class="dashboard">
+        <div class="title">Profiles</div>
+        <div class="row">name: this is wystan ok?</div>
+        <div class="row">school: Jilin University CS Major</div>
+        <div class="row">Words loved: Keep hungry</div>
+        <div class="row">Words loved: Keep hungry</div>
+        <div class="row">Words loved: Keep hungry</div>
+        <div class="row">Words loved: Keep hungry</div>
+    </div>
     <br>
     <br>
     <a class="btn" href="#">Add To Shopping Cart</a>
+    <br>
+    <br>
+
+    <div style="display: inline-block; align="center">
+        <form action="#" name="search" method="post" >
+            <input type="text" placeholder="username | email" >
+            <input type="password" placeholder="password please...">
+            <input type="submit" value="SIGN IN">
+        </form>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
 
 </html>
