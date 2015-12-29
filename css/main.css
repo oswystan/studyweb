@@ -1,89 +1,104 @@
-body
-{
+/*
+***************************************************************
+*
+* use server side fonts
+*
+***************************************************************
+*/
+@font-face {
+    font-family: 'merriweather';
+    font-style: normal;
+    font-weight: 400;
+    src: local('merriweather'), local('merriweather'),
+        url("../fonts/merriweather-regular.ttf") format('truetype');
+}
+
+/*
+***************************************************************
+*
+* containers: body, header, footer
+*
+***************************************************************
+*/
+body {
     background-color: #e0e0e0;
     font-family: skia;
 }
 
-.header
-{
+.header {
     display: block;
     width: 100%;
-    padding:20px 0 20px 0;
+    padding: 20px 0 20px 0;
     margin: 0 0 2px 0;
 
-    background: -webkit-linear-gradient(top,  #0078b1 10%, #008cb1 100%);
+    background: -webkit-linear-gradient(top, #0078b1 10%, #008cb1 100%);
     background-color: #0090b1;
     color: #ffffff;
 
     font-size: 40px;
     text-align: center;
 }
-.footer
-{
+
+.footer {
     display: block;
     width: 100%;
-    padding:20px 0 20px 0;
+    padding: 20px 0 20px 0;
     margin: 2px 0 0px 0;
 
     background-color: #0090b1;
     color: #ffffff;
 
+    font-family: skia;
     font-size: 14px;
     text-align: center;
 }
-.container
-{
+
+.container {
     display: inline-block;
     border-radius: 2px;
 
     color: #ffffff;
     background-color: white;
 }
-.label
-{
+
+.label {
     color: #555555;
     font-size: 18px;
     padding: 8px 8px 8px 8px;
 }
-.pagenumber
-{
+
+.pagenumber {
     color: #555555;
     font-size: 18px;
     padding: 4px 8px 4px 8px;
 
     text-decoration: none;
 }
-
-/*
-***************************************************************
-*
-*
-***************************************************************
-*/
-.banner
+.blank
 {
-    display: block;
-    width: 100%;
-    padding:20px 0 30px 0;
-    min-width: 600px;
-
-    background: -webkit-linear-gradient(top,  #0078b1 10%, #008cb1 100%);
-    background-color: #0090b1;
-
-    text-align: center;
-    color: #ffffff;
-    font-size: 30px;
-
-    font-family: "skia";
+    height: 20px;
 }
 
 /*
 ***************************************************************
 *
+* banner
 *
 ***************************************************************
 */
+.banner {
+    display: block;
+    width: 100%;
+    padding: 20px 0 30px 0;
+    min-width: 600px;
 
+    background: -webkit-linear-gradient(top, #0078b1 10%, #008cb1 100%);
+    background-color: #0090b1;
+
+    text-align: center;
+    color: #ffffff;
+    font-size: 30px;
+}
 
 /*
 ***************************************************************
@@ -92,26 +107,28 @@ body
 *
 ***************************************************************
 */
-.menu, .list, .btn
-{
+.menu, .list, .btn {
     display: inline-block;
     background-color: #4598ce;
     border-radius: 2px;
     margin: 1px 0 0 0;
     border-style: none;
 }
-
-.list
+.menu.full
 {
+    width: 100%;
+}
+
+.list {
     min-width: 180px;
 }
-.menu-item, .list-item, .btn
-{
+
+.menu-item, .list-item, .btn {
     background-color: transparent;
-    padding:16px 20px 16px 20px;
+    padding: 16px 20px 16px 20px;
     border: 0px none;
     border-radius: 2px;
-    margin:0 0 0 0;
+    margin: 0 0 0 0;
 
     color: #ffffff;
     text-align: center;
@@ -121,28 +138,27 @@ body
 
     font-family: "skia";
 }
-.menu-item
-{
+
+.menu-item {
     display: inline-block;
 }
-.list-item
-{
+
+.list-item {
     display: block;
 }
-.btn
-{
+
+.btn {
     background-color: #4598ce;
     display: inline-block;
 }
-.menu-item:hover, .list-item:hover, .btn:hover
-{
+
+.menu-item:hover, .list-item:hover, .btn:hover {
     background-color: #00b5ff;
 }
-.menu-item:active, .list-item:active, .btn:active
-{
+
+.menu-item:active, .list-item:active, .btn:active {
     background-color: #00a4ff;
 }
-
 
 /*
 ***************************************************************
@@ -151,8 +167,7 @@ body
 *
 ***************************************************************
 */
-input[type="text"], input[type="password"]
-{
+input[type="text"], input[type="password"] {
     border-style: none;
     border-radius: 2px;
     padding: 16px 20px 16px 20px;
@@ -161,8 +176,8 @@ input[type="text"], input[type="password"]
     font-family: skia;
     color: #555555;
 }
-input[type="submit"]
-{
+
+input[type="submit"] {
     border-style: none;
     border-radius: 2px;
     padding: 16px 20px 16px 20px;
@@ -173,8 +188,8 @@ input[type="submit"]
     background-color: #ff4d00;
     color: #ffffff;
 }
-input[type="submit"]:hover
-{
+
+input[type="submit"]:hover {
     background-color: #ff7d00;
 }
 
@@ -185,9 +200,7 @@ input[type="submit"]:hover
 *
 ***************************************************************
 */
-
-table
-{
+table {
     border-style: solid;
     border-width: 1px;
     border-color: #dddadb;
@@ -195,9 +208,7 @@ table
 
     font-size: 18px;
 }
-
-td, th
-{
+td, th {
     border-style: none solid solid none;
     border-width: 1px;
     border-color: #dddadb;
@@ -208,19 +219,74 @@ td, th
     min-width: 80px;
     max-width: 400px;
 }
-th
-{
+th {
     border-width: 1px 0 1px 0;
     background-color: #00bbde;
     font-weight: normal;
     color: white;
 }
-tr:hover
-{
-    background-color: #d7f7f8;
-}
 /* different color of different row*/
-tr:nth-child(odd)
-{
+tr:nth-child(odd) {
     background-color: #e8e8e8;
+}
+
+/*
+***************************************************************
+*
+* dashboard
+*
+***************************************************************
+*/
+.dashboard
+{
+    display: inline-block;
+    border-style: solid;
+    border-color: #d3d4d2;
+    border-width: 1px;
+    border-radius: 2px;
+    min-width: 400px;
+    max-width: 80%;
+    max-height: 1000px;
+
+    overflow: auto;
+}
+.dashboard .title, .row
+{
+    display: block;
+    padding: 16px 20px 16px 20px;
+    border-radius: 2px;
+
+    font-size: 18px;
+    font-family: "skia";
+}
+.dashboard .title
+{
+    background-color: #00bbde;
+    text-align: center;
+    color: white;
+}
+.dashboard .row
+{
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: #e1e1e1;
+    background-color: white;
+    color: #555555;
+
+    text-align: left;
+}
+.dashboard .row .label
+{
+    padding: 4px 4px 4px 0;
+    color: #ff0095;
+}
+.dashboard .row a
+{
+    padding: 4px 4px 4px 0;
+    text-decoration: none;
+}
+
+.dashboard .row:hover
+{
+    background-color: #c2f7f5;
 }
