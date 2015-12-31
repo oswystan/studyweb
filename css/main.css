@@ -51,6 +51,7 @@ body {
     color: white;
     font-size: 16px;
     text-decoration: none;
+    vertical-align: middle;
 }
 
 .footer {
@@ -267,7 +268,6 @@ td, th {
     border-color: #dddadb;
 
     margin: 0 0 0 0;
-    text-align: center;
     height: 50px;
     min-width: 80px;
 
@@ -280,6 +280,7 @@ th {
     background-color: #00bbde;
     font-weight: normal;
     color: white;
+    text-align: center;
 }
 
 /* different color of different row*/
