@@ -10,7 +10,7 @@
     font-style: normal;
     font-weight: 400;
     src: local('merriweather'), local('merriweather'),
-        url("../fonts/merriweather-regular.ttf") format('truetype');
+    url("../fonts/merriweather-regular.ttf") format('truetype');
 }
 
 /*
@@ -29,7 +29,7 @@ body {
     display: block;
     width: 100%;
     padding: 20px 0 20px 0;
-    margin: 0 0 2px 0;
+    margin: 0 0 0 0;
 
     background: -webkit-linear-gradient(top, #0078b1 10%, #008cb1 100%);
     background-color: #0090b1;
@@ -65,6 +65,7 @@ body {
     color: #555555;
     font-size: 18px;
     padding: 8px 8px 8px 8px;
+    text-align: left;
 }
 
 .pagenumber {
@@ -74,8 +75,8 @@ body {
 
     text-decoration: none;
 }
-.blank
-{
+
+.blank {
     height: 20px;
 }
 
@@ -114,8 +115,8 @@ body {
     margin: 1px 0 0 0;
     border-style: none;
 }
-.menu.full
-{
+
+.menu.full {
     width: 100%;
 }
 
@@ -152,8 +153,32 @@ body {
     display: inline-block;
 }
 
+.btn.green {
+    background-color: #00ad33;
+}
+
+.btn.orange {
+    background-color: #e47700;
+}
+
 .menu-item:hover, .list-item:hover, .btn:hover {
     background-color: #00b5ff;
+}
+
+.btn.green:hover {
+    background-color: #00cb3a;
+}
+
+.btn.green:active {
+    background-color: #00be38;
+}
+
+.btn.orange:hover {
+    background-color: #f78900;
+}
+
+.btn.orange:active {
+    background-color: #ec7d00;
 }
 
 .menu-item:active, .list-item:active, .btn:active {
@@ -167,8 +192,10 @@ body {
 *
 ***************************************************************
 */
-input[type="text"], input[type="password"] {
-    border-style: none;
+input, textarea, select {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e1e1e1;
     border-radius: 2px;
     padding: 16px 20px 16px 20px;
 
@@ -176,17 +203,25 @@ input[type="text"], input[type="password"] {
     font-family: skia;
     color: #555555;
 }
+select {
+    height: 50px;
+}
+
+input[type='reset']:hover {
+    background-color: #cecece;
+    cursor: pointer;
+}
 
 input[type="submit"] {
     border-style: none;
     border-radius: 2px;
     padding: 16px 20px 16px 20px;
-    cursor: pointer;
 
     font-size: 18px;
     font-family: skia;
     background-color: #ff4d00;
     color: #ffffff;
+    cursor: pointer;
 }
 
 input[type="submit"]:hover {
@@ -206,10 +241,14 @@ table {
     border-color: #dddadb;
     background-color: white;
 
+    max-width: 96%;
+
     font-size: 18px;
+    color: #555555;
 }
+
 td, th {
-    border-style: none solid solid none;
+    border-style: solid;
     border-width: 1px;
     border-color: #dddadb;
 
@@ -217,17 +256,29 @@ td, th {
     text-align: center;
     height: 50px;
     min-width: 80px;
-    max-width: 400px;
+
+    padding: 4px;
+    color: #555555;
 }
+
 th {
     border-width: 1px 0 1px 0;
     background-color: #00bbde;
     font-weight: normal;
     color: white;
 }
+
 /* different color of different row*/
-tr:nth-child(odd) {
+tr.interleaved:nth-child(odd) {
     background-color: #e8e8e8;
+}
+
+table.borderless, tr.borderless, td.borderless, th.borderless {
+    border-style: none;
+    border-width: 0;
+}
+table.rounded, tr.rounded, td.rounded, th.rounded {
+    border-radius: 4px;
 }
 
 /*
@@ -237,8 +288,7 @@ tr:nth-child(odd) {
 *
 ***************************************************************
 */
-.dashboard
-{
+.dashboard {
     display: inline-block;
     border-style: solid;
     border-color: #d3d4d2;
@@ -250,8 +300,8 @@ tr:nth-child(odd) {
 
     overflow: auto;
 }
-.dashboard .title, .row
-{
+
+.dashboard .title, .row {
     display: block;
     padding: 16px 20px 16px 20px;
     border-radius: 2px;
@@ -259,14 +309,14 @@ tr:nth-child(odd) {
     font-size: 18px;
     font-family: "skia";
 }
-.dashboard .title
-{
+
+.dashboard .title {
     background-color: #00bbde;
     text-align: center;
     color: white;
 }
-.dashboard .row
-{
+
+.dashboard .row {
     border-style: solid;
     border-width: 0 0 1px 0;
     border-color: #e1e1e1;
@@ -275,18 +325,64 @@ tr:nth-child(odd) {
 
     text-align: left;
 }
-.dashboard .row .label
-{
+
+.dashboard .row .label {
     padding: 4px 4px 4px 0;
     color: #ff0095;
 }
-.dashboard .row a
-{
+
+.dashboard .row a {
     padding: 4px 4px 4px 0;
     text-decoration: none;
 }
 
-.dashboard .row:hover
-{
-    background-color: #c2f7f5;
+.dashboard .row:hover {
+    background-color: #e8e8e8;
+}
+
+/*
+***************************************************************
+*
+* div dialog style
+*
+***************************************************************
+*/
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 101;
+    -moz-opacity: 0.3;
+    opacity: .30;
+    filter: alpha(opacity=30);
+}
+
+.dialog {
+    display: none;
+    position: absolute;
+    padding: 16px 16px 16px 16px;
+    border-radius: 4px;
+    border-style: none;
+
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    min-height: 60%;
+    background-color: white;
+    z-index: 1002;
+}
+
+.dialog .title {
+    font-weight: bold;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: #e1e1e1;
+    color: #555555;
+    font-size: 20px;
+    padding: 8px 0 8px 0;
+    margin: 0 0 8px 0;
 }
