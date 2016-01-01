@@ -273,6 +273,7 @@ td, th {
 
     padding: 4px;
     color: #555555;
+    text-align: left;
 }
 
 th {
@@ -280,7 +281,6 @@ th {
     background-color: #00bbde;
     font-weight: normal;
     color: white;
-    text-align: center;
 }
 
 /* different color of different row*/
@@ -294,6 +294,16 @@ table.borderless, tr.borderless, td.borderless, th.borderless {
 }
 table.rounded, tr.rounded, td.rounded, th.rounded {
     border-radius: 4px;
+}
+table.right, tr.right, td.right, th.right {
+    text-align: right;
+}
+table.center, tr.center, td.center, th.center {
+    text-align: center;
+}
+td.item {
+    text-align: right;
+    background-color: #e1e1e1;
 }
 
 /*
