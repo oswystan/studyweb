@@ -153,6 +153,8 @@ body {
     cursor: pointer;
 
     font-family: "skia";
+
+    transition: background-color .4s ease-in-out;
 }
 
 .menu-item {
@@ -217,6 +219,8 @@ input, textarea, select {
     font-size: 18px;
     font-family: skia;
     color: #555555;
+
+    transition: background-color .4s ease-in-out;
 }
 select {
     height: 50px;
@@ -333,6 +337,7 @@ td.item {
 
     font-size: 18px;
     font-family: "skia";
+
 }
 
 .dashboard .title {
