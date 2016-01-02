@@ -35,12 +35,12 @@ body {
     background-color: #0090b1;
     color: #ffffff;
 
-    font-size: 64px;
+    font-size: 48px;
     text-align: center;
 }
 .header img {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     vertical-align: middle;
     border-style: solid;
