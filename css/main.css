@@ -98,7 +98,7 @@ a {
 }
 
 .blank {
-    height: 20px;
+    height: 16px;
     clear: both;
 }
 
@@ -434,6 +434,8 @@ td.item {
     background-color: #0090b1;
     color: #ffffff;
     min-width: 900px;
+    padding: 0;
+    margin: 0;
 }
 
 #nav a {
