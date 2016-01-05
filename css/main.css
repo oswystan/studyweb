@@ -496,3 +496,71 @@ td.item {
 #nav .userinfo a:hover {
     background-color: transparent;
 }
+
+
+/*
+***************************************************************
+*
+* css shapes
+*
+***************************************************************
+*/
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-color: #555555;
+    border-style: solid;
+    border-width: 8px 8px 0 0;
+    border-radius: 16%;
+    transform: rotate(45deg);
+}
+
+
+.bar {
+    display: inline-block;
+    width:120px;
+    height: 120px;
+    border-style: none;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.gray {
+    color: #555;
+    background-color: #a7a7a7;
+}
+
+.green {
+    color: #FFF;
+    background-color: #00be38;
+}
+.red {
+     color: #FFF;
+     background-color: #d81d00;
+ }
+
+.yellow {
+    color: #FFF;
+    background-color: #e9be00;
+}
+.blue {
+    color: #FFF;
+    background-color: #00a0e9;
+}
+
+.bar h3 {
+    display: inline-block;
+    text-align: center;
+    line-height: 120px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.8em;
+    font-family: Verdana;
+    font-weight: 200;
+}
+
+
