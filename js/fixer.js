@@ -19,7 +19,13 @@ function dumpObj(obj)
  */
 function dumpObjInPage(obj)
 {
-    var e = document.createElement("div");
+    var e = document.getElementById("dumpobj-div");
+    if(e == null)
+    {
+        e = document.createElement("div");
+        e.setAttribute("id", "dumpobj-div");
+    }
+
     var str = "";
     for(var attr in obj)
     {
