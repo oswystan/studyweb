@@ -26,11 +26,13 @@ function dumpObjInPage(obj)
         e.setAttribute("id", "dumpobj-div");
     }
 
-    var str = "";
+    var str = "dump " + obj.toString() + "<br>";
+    str += "======================================<br>";
     for(var attr in obj)
     {
         str = str + attr + "(" + typeof(obj[attr]) + ")=" + obj[attr] + "<br>";
     }
+    str += "======================================<br>";
     e.innerHTML=str;
     document.body.appendChild(e);
 }
