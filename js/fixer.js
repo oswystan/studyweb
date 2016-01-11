@@ -5,10 +5,13 @@
  */
 function dumpObj(obj)
 {
+    console.log("dump " + obj.toString());
+    console.log("==================================");
     for(var attr in obj)
     {
         console.log(attr + "(" + typeof(obj[attr]) + ")=" + obj[attr]);
     }
+    console.log("==================================");
 }
 
 /*
