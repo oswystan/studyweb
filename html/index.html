@@ -8,8 +8,10 @@ http://www.w3school.com.cn/css/
 <head>
     <meta charset="UTF-8">
     <title>Study Web</title>
-    <!-- css link-->
+    <!-- css link -->
     <link href="../css/main.css" rel="stylesheet" type="text/css">
+    <!-- script link -->
+    <script type="text/javascript" src="../js/fixer.js"></script>
 </head>
 <style type="text/css">
 
@@ -59,10 +61,16 @@ http://www.w3school.com.cn/css/
     {
         var img = document.getElementById("portrait");
         if(img != null) {
-            img.src="../img/2.jpg";
+            img.src="../img/sherlock.jpg";
         }else {
             alert("not found");
         }
+    }
+
+    function showNav()
+    {
+        dumpObj(navigator);
+        dumpObjInPage(navigator);
     }
 </script>
 <body>
@@ -140,6 +148,7 @@ http://www.w3school.com.cn/css/
     <br>
     <img id="portrait" src="../img/1.jpg" />
     <a  href="javascript:void(0)" onclick="change()">change</a>
+    <a href="javascript:void(0)" onclick="showNav()">Nav</a>
     <br>
     <br>
     <br>
