@@ -70,6 +70,11 @@ http://www.w3school.com.cn/css/
         dumpObj(navigator);
         dumpObjInPage(navigator);
     }
+
+    function showContextMenu()
+    {
+        alert("right mouse click");
+    }
 </script>
 <body>
     <div class="banner">
@@ -138,7 +143,13 @@ http://www.w3school.com.cn/css/
     <br><br>
 
     <div class="arrow"></div>
-    <div class="bar green"><h3>90%</h3></div>
+
+
+    <!-- this also show how to capture right click--->
+    <div class="bar green" oncontextmenu="showContextMenu(); return false;"><h3>90%</h3></div>
+
+
+
     <div class="bar gray"><h3>90%</h3></div>
     <div class="bar red"><h3>90%</h3></div>
     <div class="bar yellow"><h3>100%</h3></div>
