@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket</title>
+    <script type="text/javascript" language="JavaScript">
+
+        var socket = null;
+        var serverUrl = "ws://echo.websocket.org/";
+
+        function onOpen(ev)
+        {
+            connectStatus.innerText="CONNECTED";
+        }
+        function onClose(ev)
+        {
+            connectStatus.innerText="CLOSED";
+            socket = null;
+        }
+        function onError(ev)
+        {
+            connectStatus.innerText="ERROR:";
+        }
+        function onMessage(ev)
+        {
+            appendMsg("RESPONESE:" + ev.data, false)
+        }
+
+        function appendMsg(msg, isRquest)
+        {
+            var e = document.createElement('p');
+            e.innerText = msg;
+            if(!isRquest)
+            {
+                e.style.color = "blue";
+            }
+            main.appendChild(e);
+            main.scrollTop = main.scrollHeight;
+        }
+
+        function connectSocket()
+        {
+            //var status = document.getElementById("status");
+            socket = new WebSocket(serverUrl);
+            socket.onopen = onOpen;
+            socket.onclose = onClose;
+            socket.onerror= onError;
+            socket.onmessage = onMessage;
+        }
+
+        function closeSocket()
+        {
+            socket.close();
+        }
+
+        function sendMsg()
+        {
+            if(message.value != "" && socket != null) {
+                socket.send(message.value);
+                appendMsg("SEND: " + message.value, true);
+            }
+        }
+
+        function clearMsg()
+        {
+            var main = document.getElementById("main");
+            main.innerHTML = "";
+            message.value="";
+        }
+    </script>
+
+    <style type="text/css">
+        body{
+            font-family: skia;
+            font-size: 18px;
+        }
+        input, button {
+            padding: 16px;
+            border-radius: 2px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a7a7a7;
+            font-family: skia;
+            font-size: 18px;
+        }
+        button {
+            border-style: none;
+            background-color: #00a0e9;
+            color: white;
+        }
+        button:hover {
+            background-color: #00aaf2;
+        }
+        button:active {
+            background-color: #00a0e3;
+        }
+
+        #main{
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a7a7a7;
+            background-color: #a7a7a7;
+            border-radius: 4px;
+            width: 50%;
+            height: 400px;
+            overflow: auto;
+            padding: 10px;
+            margin: 0px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<p>for more infomration please refer to the website <a href="http://www.websocket.org/">websocket</a> </p>
+
+<div>
+    <p>
+        <button onclick="connectSocket()">CONNECT</button>
+        <button onclick="closeSocket()">CLOSE</button>
+    </p>
+    <input type="text" id="message" style="width: 400px;">
+    <button onclick="sendMsg()">SEND</button>
+    <button onclick="clearMsg()">CLEAR</button>
+    <p id="connectStatus">IDLE</p>
+    <div id="main">
+
+    </div>
+</div>
+</body>
+</html>
