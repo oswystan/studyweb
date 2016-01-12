@@ -8,72 +8,68 @@
         var socket = null;
         var serverUrl = "ws://echo.websocket.org/";
 
-        function onOpen(ev)
-        {
-            connectStatus.innerText="CONNECTED";
+        function onOpen(ev) {
+            connectStatus.innerText = "CONNECTED";
         }
-        function onClose(ev)
-        {
-            connectStatus.innerText="CLOSED";
+        function onClose(ev) {
+            connectStatus.innerText = "CLOSED";
             socket = null;
         }
-        function onError(ev)
-        {
-            connectStatus.innerText="ERROR:";
+        function onError(ev) {
+            connectStatus.innerText = "ERROR:";
         }
-        function onMessage(ev)
-        {
+        function onMessage(ev) {
             appendMsg("RESPONESE:" + ev.data, false)
         }
 
-        function appendMsg(msg, isRquest)
-        {
+        function appendMsg(msg, isRquest) {
             var e = document.createElement('p');
             e.innerText = msg;
-            if(!isRquest)
-            {
+            if (!isRquest) {
                 e.style.color = "blue";
             }
             main.appendChild(e);
             main.scrollTop = main.scrollHeight;
         }
 
-        function connectSocket()
-        {
-            //var status = document.getElementById("status");
-            socket = new WebSocket(serverUrl);
-            socket.onopen = onOpen;
-            socket.onclose = onClose;
-            socket.onerror= onError;
-            socket.onmessage = onMessage;
+        function connectSocket() {
+            if (socket == null) {
+                socket = new WebSocket(serverUrl);
+                socket.onopen = onOpen;
+                socket.onclose = onClose;
+                socket.onerror = onError;
+                socket.onmessage = onMessage;
+                connectStatus.innerText = "CONNECTING:" + serverUrl + " ...";
+            }
         }
 
-        function closeSocket()
-        {
-            socket.close();
+        function closeSocket() {
+            if(socket != null) {
+                connectStatus.innerText = "CLOSING ...";
+                socket.close();
+            }
         }
 
-        function sendMsg()
-        {
-            if(message.value != "" && socket != null) {
+        function sendMsg() {
+            if (message.value != "" && socket != null) {
                 socket.send(message.value);
                 appendMsg("SEND: " + message.value, true);
             }
         }
 
-        function clearMsg()
-        {
+        function clearMsg() {
             var main = document.getElementById("main");
             main.innerHTML = "";
-            message.value="";
+            message.value = "";
         }
     </script>
 
     <style type="text/css">
-        body{
+        body {
             font-family: skia;
             font-size: 18px;
         }
+
         input, button {
             padding: 16px;
             border-radius: 2px;
@@ -83,19 +79,22 @@
             font-family: skia;
             font-size: 18px;
         }
+
         button {
             border-style: none;
             background-color: #00a0e9;
             color: white;
         }
+
         button:hover {
             background-color: #00aaf2;
         }
+
         button:active {
             background-color: #00a0e3;
         }
 
-        #main{
+        #main {
             border-style: solid;
             border-width: 1px;
             border-color: #a7a7a7;
@@ -112,7 +111,7 @@
 </head>
 <body>
 
-<p>for more infomration please refer to the website <a href="http://www.websocket.org/">websocket</a> </p>
+<p>for more infomration please refer to the website <a href="http://www.websocket.org/">websocket</a></p>
 
 <div>
     <p>
