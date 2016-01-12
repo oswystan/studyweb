@@ -1,0 +1,4 @@
+<p> this is ajax.txt p </p>
+<div> this is ajax.txt div </div>
+<p> this is ajax.txt p2 </p>
+<div> this is ajax.txt div2 </div>

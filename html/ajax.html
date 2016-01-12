@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#getP").click(function(){
+                $("#allP").load("ajax.txt p");
+            })
+            $("#getDIV").click(function(){
+                $("#allDiv").load("ajax.txt div");
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="getP" type="button">GETP</button>
+    <button id="getDIV">GETDIV</button>
+    <p id="allP"></p>
+    <div id="allDiv"></div>
+</body>
+</html>
