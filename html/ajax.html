@@ -17,10 +17,10 @@
             $("#getJson").click(function(){
                 $.get("json.txt", function(data){
                     var obj = eval("(" + data + ")");
-                    $("#total").text("total" + obj.length + " records");
-                    $("#jsonname").text("name:" + obj[0].name);
-                    $("#jsonage").text("age:" + obj[1].age);
-                    $("#jsonsex").text("sex:" + obj[0].sex);
+                    $("#total").text("TOTAL " + obj.length + " RECORDS");
+                    $("#jsonname").text("NAME:" + obj[0].name);
+                    $("#jsonage").text("AGE:" + obj[1].age);
+                    $("#jsonsex").text("SEX:" + obj[0].sex);
                 });
             });
         })
