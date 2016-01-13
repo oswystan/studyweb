@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+    </script>
+
+    <style type="text/css">
+        body {
+            background-color: #e0e0e0;
+            font-family: skia;
+            font-size: 18px;
+            padding: 0;
+            margin: 20px;
+        }
+
+        .container {
+            display: block;
+            float: left;
+            background-color: white;
+            box-shadow: 2px 2px 2px #bbb;
+            color: #555555;
+            border-radius: 4px;
+            min-width: auto;
+        }
+
+        .container img {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+
+        .container p {
+            line-height: 1.2em;
+            margin: 0 0;
+            padding: 20px;
+            background-color: #eaeaea;
+            float: left;
+            font-size: 0.8em;
+            max-height: 100px;
+            overflow: auto;
+        }
+
+        .container h3 {
+            color: white;
+            font-size: 1.5em;
+            margin: 0;
+            padding: 16px;
+            background-color: #009dcc;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .container ul {
+            padding: 10px;
+            margin: 0;
+            border-radius: 4px;
+            float: left;
+            font-size: 0.9em;
+        }
+
+        .container ul li {
+            display: inline-block;
+            float: left;
+            width: 280px;
+            padding: 10px;
+            text-align: left;
+
+        }
+
+        .container ul li:before {
+            display: inline-block;
+            float: left;
+            text-align: right;
+            padding: 0 14px 0 0;
+            width: 130px;
+            content: attr(data-label) ":";
+            font-weight: bold;
+        }
+
+        textarea {
+            font-family: skia;
+            font-size: 18px;
+            border-color: #e0e0e0;
+            padding: 16px;
+            line-height: 1.2em;
+            color: #555555;
+            border-radius: 2px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container" style="min-width: 320px; width: 50%">
+    <h3>BASIC INFORMATION</h3>
+    <img src="../img/sherlock.jpg" alt="">
+    <ul>
+        <li data-label="ID">1</li>
+        <li data-label="NAME">FOX</li>
+        <li data-label="CREATED-DATE">2012-12-24 21:21:12</li>
+        <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+    </ul>
+    <p>Team members need to learn how to help one another, help other team members realize their true potential, and
+        create an environment that allows everyone to go beyond his or her limitations. Teams can be broken down into
+        from a huge team or one big group of people, even if these smaller secondary teams are temporary.</p>
+</div>
+
+</body>
+</html>
