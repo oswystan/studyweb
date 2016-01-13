@@ -9,17 +9,67 @@
         $(document).ready(function(){
             $("#getP").click(function(){
                 $("#allP").load("ajax.txt p");
-            })
+            });
             $("#getDIV").click(function(){
-                $("body").load("ajax.txt div");
-            })
+                $("#allDiv").load("ajax.txt div");
+            });
+
+            $("#getJson").click(function(){
+                $.get("json.txt", function(data){
+                    var obj = eval("(" + data + ")");
+                    $("#total").text("total" + obj.length + " records");
+                    $("#jsonname").text("name:" + obj[0].name);
+                    $("#jsonage").text("age:" + obj[1].age);
+                    $("#jsonsex").text("sex:" + obj[0].sex);
+                });
+            });
         })
     </script>
+
+
+    <style type="text/css">
+        body {
+            font-family: skia;
+            font-size: 18px;
+        }
+
+        input, button {
+            padding: 16px;
+            border-radius: 2px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a7a7a7;
+            font-family: skia;
+            font-size: 18px;
+        }
+
+        button {
+            border-style: none;
+            background-color: #00a0e9;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #00aaf2;
+        }
+
+        button:active {
+            background-color: #00a0e3;
+        }
+    </style>
 </head>
 <body>
     <button id="getP" type="button">GETP</button>
     <button id="getDIV">GETDIV</button>
+    <button id="getJson">GETJSON</button>
     <p id="allP"></p>
     <div id="allDiv"></div>
+    <div>
+        <p id="total"></p>
+        <p id="jsonname"></p>
+        <p id="jsonsex"></p>
+        <p id="jsonage"></p>
+    </div>
+
 </body>
 </html>
