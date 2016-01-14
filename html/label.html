@@ -9,6 +9,35 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            //# set search box width first
+            $(".container :text").each(function () {
+                var p = $(this).parent().width();
+                p -= 30;
+                $(this).css("width", p + "px");
+            });
+
+            // add event handler and show the result
+            $("#search-team").keydown(function () {
+                if ($("#search-team").val() != "FOX") {
+                    $("#search-team-result").css("display", "none");
+                }
+                else {
+                    $("#search-team-result").css("display", "block");
+                }
+            });
+
+
+            // add event handler and show the result
+            $("#search-member").change(function () {
+                var reg = eval("/" + $("#search-member").val() + "/i");
+                $("#search-member-result [data-label='NICKY']").each(function () {
+                    if ($(this).text().search(reg) >= 0) {
+                        $(this).parent().css("display", "inline-block");
+                    } else {
+                        $(this).parent().css("display", "none");
+                    }
+                })
+            });
         });
     </script>
 
@@ -21,14 +50,47 @@
             margin: 20px;
         }
 
-        .container {
+        input {
+            font-family: skia;
+            font-size: 1em;
+        }
+
+        .clear-float-blk {
+            clear: both;
             display: block;
+            height: 1px;
+            margin: 0;
+        }
+
+        #search-team-result {
+            margin-top: 10px;
+            border-style: solid;
+            border-width: 1px 0 0 0;
+            border-color: #e1e1e1;
+            float: left;
+            display: none;
+        }
+
+        .container {
+            display: inline-block;
             float: left;
             background-color: white;
             box-shadow: 2px 2px 2px #bbb;
             color: #555555;
             border-radius: 4px;
-            min-width: auto;
+            padding: 0;
+            margin: 4px;
+            width: 300px;
+        }
+
+        .container input {
+            border-radius: 2px;
+            border-width: 0 0 1px 0;
+            border-color: #cbcbcb;
+            padding: 14px;
+            margin: 0;
+            float: left;
+            box-shadow: none;
         }
 
         .container img {
@@ -43,19 +105,26 @@
             margin: 0 0;
             padding: 20px;
             background-color: #eaeaea;
-            float: left;
+            display: block;
+            width: auto;
             font-size: 0.8em;
             max-height: 100px;
             overflow: auto;
+            border-radius: 4px;
+        }
+
+        .container p:first-letter {
+            font-size: 2.0em;
         }
 
         .container h3 {
             color: white;
-            font-size: 1.5em;
+            font-size: 1.2em;
             margin: 0;
             padding: 16px;
-            background-color: #009dcc;
+            background-color: #1eb493;
             border-radius: 4px 4px 0 0;
+            font-weight: 400;
         }
 
         .container ul {
@@ -69,10 +138,9 @@
         .container ul li {
             display: inline-block;
             float: left;
-            width: 280px;
-            padding: 10px;
+            width: 190px;
+            padding: 2px 8px;
             text-align: left;
-
         }
 
         .container ul li:before {
@@ -80,37 +148,84 @@
             float: left;
             text-align: right;
             padding: 0 14px 0 0;
-            width: 130px;
+            width: 80px;
             content: attr(data-label) ":";
             font-weight: bold;
         }
 
-        textarea {
-            font-family: skia;
-            font-size: 18px;
-            border-color: #e0e0e0;
-            padding: 16px;
-            line-height: 1.2em;
-            color: #555555;
-            border-radius: 2px;
+        .container.list ul li {
+            width: 260px;
         }
 
     </style>
 </head>
 <body>
 
-<div class="container" style="min-width: 320px; width: 50%">
-    <h3>BASIC INFORMATION</h3>
-    <img src="../img/sherlock.jpg" alt="">
+<div class="container" style="width: 480px">
+    <h3>TEAM - FOX</h3>
+    <!--img src="../img/sherlock.jpg" alt=""-->
     <ul>
         <li data-label="ID">1</li>
         <li data-label="NAME">FOX</li>
-        <li data-label="CREATED-DATE">2012-12-24 21:21:12</li>
+        <li data-label="DATE">2012-12-24</li>
         <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+        <li data-label="MEMBER"><a href="javascript:void(0)">12</a></li>
+        <li data-label="BUGS"><a href="javascript:void(0)">12000</a></li>
+        <li data-label="STATUS">ARCHIVED</li>
     </ul>
     <p>Team members need to learn how to help one another, help other team members realize their true potential, and
-        create an environment that allows everyone to go beyond his or her limitations. Teams can be broken down into
-        from a huge team or one big group of people, even if these smaller secondary teams are temporary.</p>
+        create an environment that allows everyone to go beyond his or her limitations. </p>
+</div>
+
+<div class="container" style="width: 480px">
+    <h3>TEAM SEARCH</h3>
+    <input id="search-team" type="text" placeholder="input team name ...">
+
+    <div id="search-team-result">
+        <img src="../img/sherlock.jpg" alt="">
+        <ul>
+            <li data-label="ID">1</li>
+            <li data-label="NAME">FOX</li>
+            <li data-label="DATE">2012-12-24</li>
+            <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+            <li data-label="MEMBER"><a href="javascript:void(0)">12</a></li>
+            <li data-label="BUGS"><a href="javascript:void(0)">12000</a></li>
+            <li data-label="STATUS">ARCHIVED</li>
+        </ul>
+        <p>Team members need to learn how to help one another, help other team members realize their true potential, and
+            create an environment that allows everyone to go beyond his or her limitations. </p>
+    </div>
+</div>
+<div class="container list" style="width: 480px">
+    <h3>PEOPLE SEARCH</h3>
+    <input id="search-member" type="text" placeholder="input member name ...">
+
+    <div id="search-member-result">
+        <ul>
+            <img src="../img/1.jpg" style="width: 48px; height: 48px; border-radius: 50%"/>
+            <li data-label="ID">1</li>
+            <li data-label="NICKY">wystan</li>
+            <li data-label="EMAIL">wytan@sogo.com</li>
+        </ul>
+        <ul>
+            <img src="../img/1.jpg" style="width: 48px; height: 48px; border-radius: 50%"/>
+            <li data-label="ID">1</li>
+            <li data-label="NICKY">wangyang</li>
+            <li data-label="EMAIL">wangyang@sogo.com</li>
+        </ul>
+        <ul>
+            <img src="../img/1.jpg" style="width: 48px; height: 48px; border-radius: 50%"/>
+            <li data-label="ID">1</li>
+            <li data-label="NICKY">wanghai</li>
+            <li data-label="EMAIL">wanghai@sogo.com</li>
+        </ul>
+        <ul>
+            <img src="../img/1.jpg" style="width: 48px; height: 48px; border-radius: 50%;"/>
+            <li data-label="ID">1</li>
+            <li data-label="NICKY">pengyan</li>
+            <li data-label="EMAIL">pengyan@sogo.com</li>
+        </ul>
+    </div>
 </div>
 
 </body>

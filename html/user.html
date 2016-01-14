@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fixer-user</title>
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/fixer.css" />
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            // reset list width
+            $("#teamlist-joined li").css("width", $("#teamlist-joined").width()-20 + "px");
+            $("#teamlist-created li").css("width", $("#teamlist-created").width()-20 + "px");
+
+
+            // hidden all container
+            $("#teamlist-joined").hide();
+            $("#teamlist-created").hide();
+            //$("#buglist").hide();
+        });
+    </script>
+
+</head>
+<body>
+
+<!------------------------------------------------------------------------
+-
+- teamlist-joined
+-
+-------------------------------------------------------------------------->
+<div id="teamlist-joined" class="container" style="width: 400px">
+    <h3>TEAM-JOINED</h3>
+    <ul>
+        <li data-label="ID"><a href="javascript: void(0)">1</a></li>
+        <li data-label="NAME">FOX</li>
+        <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+    </ul>
+    <ul>
+        <li data-label="ID"><a href="javascript: void(0)">2</a></li>
+        <li data-label="NAME">MOUNTAIN</li>
+        <li data-label="LEADER"><a href="javascript:void(0)">peng</a></li>
+    </ul>
+    <ul>
+        <li data-label="ID"><a href="javascript: void(0)">3</a></li>
+        <li data-label="NAME">wystudio-font-design</li>
+        <li data-label="LEADER"><a href="javascript:void(0)">momo</a></li>
+    </ul>
+</div>
+
+
+
+
+<!------------------------------------------------------------------------
+-
+- teamlist-created
+-
+-------------------------------------------------------------------------->
+
+<div id="teamlist-created" class="container" style="width: 400px">
+    <h3>TEAM-CREATED</h3>
+    <ul>
+        <li data-label="ID">1</li>
+        <li data-label="NAME"><a href="javascript: void(0)">FOX</a></li>
+    </ul>
+    <ul>
+        <li data-label="ID">2</li>
+        <li data-label="NAME"><a href="javascript:void(0)">MOUNTAIN</a></li>
+    </ul>
+    <ul>
+        <li data-label="ID">3</li>
+        <li data-label="NAME"><a href="javascript:void(0)">wystuio-font-design-project</a></li>
+    </ul>
+</div>
+
+
+
+<!------------------------------------------------------------------------
+-
+- buglist
+-
+-------------------------------------------------------------------------->
+
+<div id="buglist" class="container" style="width: 1000px">
+    <h3>BUGLIST</h3>
+    <div class="filter-section">
+        <ul>
+            <li data-label="TEAM-NAME"><input name="TEAM-NAME" type="text" /></li>
+            <li data-label="PRIORITY"><input name="PRIORITY" type="text" /></li>
+            <li data-label="STATUS"><input name="STATUS" type="text" /></li>
+            <li data-label="HANDLER"><input name="HANDLER" type="text" /></li>
+            <li data-label="CREATED"><input name="CREATED" type="text" /></li><br>
+            <li data-label="DATE-FROM"><input name="DATE-FROM" type="date" /></li>
+            <li data-label="DATE-TO"><input name="DATE-TO" type="date" /></li>
+        </ul>
+    </div>
+    <div class="blanker"></div>
+    <div class="command-section" align="right">
+        <a class="btn" href="javascript:void(0)">NEW</a>
+        <a class="btn" href="javascript:void(0)">EXPORT</a>
+        <a class="btn" href="javascript:void(0)">EXPORT-ALL</a>
+    </div>
+    <div class="detail-section"></div>
+    <table>
+        <tr>
+            <th><a href="javascript: void(0)">ID</a></th>
+            <th><a href="javascript: void(0)">HANDLER</a></th>
+            <th><a href="javascript: void(0)">PRIORITY</a></th>
+            <th><a href="javascript: void(0)">STATUS</a></th>
+            <th><a href="javascript: void(0)">CREATED-BY</a></th>
+            <th><a href="javascript: void(0)">DATE</a></th>
+            <th>TITLE</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>wystan</td>
+            <td>high</td>
+            <td>open</td>
+            <td>wystan</td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>wystan</td>
+            <td>high</td>
+            <td>open</td>
+            <td>wystan</td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>wystan</td>
+            <td>high</td>
+            <td>open</td>
+            <td>wystan</td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>wystan</td>
+            <td>high</td>
+            <td>open</td>
+            <td>wystan</td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>wystan</td>
+            <td>high</td>
+            <td>open</td>
+            <td>wystan</td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>wystan</td>
+            <td>high</td>
+            <td>open</td>
+            <td>wystan</td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>wystan</td>
+            <td>high</td>
+            <td>open</td>
+            <td>wystan</td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>wystan</td>
+            <td>high</td>
+            <td>open</td>
+            <td>wystan</td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+    </table>
+    <div class="page-section">
+        <a href="javascript:void(0)">FIRST</a>
+        <a href="javascript:void(0)">1</a>
+        <a href="javascript:void(0)">2</a>
+        <a href="javascript:void(0)">3</a>
+        <a href="javascript:void(0)">4</a>
+        <a href="javascript:void(0)">5</a>
+        <a href="javascript:void(0)">6</a>
+        <a href="javascript:void(0)">7</a>
+        <a href="javascript:void(0)">LAST</a>
+    </div>
+</div>
+
+
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
+
+
+
+
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
+
+
+
+
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
+</body>
+</html>

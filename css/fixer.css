@@ -1,0 +1,164 @@
+/*
+***************************************************************
+*
+*
+*
+***************************************************************
+*/
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: skia;
+    font-size: 18px;
+    background-color: #e8e8e8;
+}
+
+input {
+    border-style: solid ;
+    border-width: 1px;
+    border-color: #cbcbcb;
+    font-family: skia;
+    font-size: 18px;
+    padding: 16px;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #00ad33;
+    display: inline-block;
+    border-style: none;
+    color: white;
+    padding: 16px 20px;
+    border-radius: 2px;
+}
+.btn:hover {
+    background-color: #00cb3a;
+}
+.btn:active {
+    background-color: #00be38;
+}
+
+.blanker {
+    clear: both; height: 20px; width: 100%;
+}
+
+.container {
+    display: inline-block;
+    float: left;
+    background-color: white;
+    box-shadow: 2px 2px 2px #bbb;
+    color: #555555;
+    border-radius: 4px;
+    padding: 0;
+    margin: 4px;
+}
+
+.container h3 {
+    color: white;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 16px;
+    background-color: #1eb493;
+    border-radius: 4px 4px 0 0;
+    font-weight: 400;
+}
+
+.container ul {
+    padding: 10px;
+    margin: 0;
+    border-radius: 4px;
+    float: left;
+    font-size: 0.9em;
+    list-style-type: none;
+}
+.container ul:hover {
+    background-color: #e8e8e8;
+}
+
+.container ul li{
+    display: inline-block;
+    width: auto;
+    overflow: hidden;
+}
+.container ul li:before {
+    display: inline-block;
+    float: left;
+    text-align: right;
+    padding: 0 14px 0 0;
+    width: 80px;
+    content: attr(data-label) ":";
+    font-weight: bold;
+}
+
+#buglist ul  {
+    border-style: solid;
+    border-width: 0 0 1px 0;
+
+    border-color: #cbcbcb;
+}
+
+#buglist ul li:before {
+    width: 120px;
+    line-height: 50px;
+}
+
+#buglist ul input {
+    width: 140px;
+}
+
+#buglist .page-section {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#buglist .page-section a{
+    display: inline-block;
+    padding: 16px 24px;
+}
+#buglist .page-section a:hover{
+    background-color: #cbcbcb;
+    border-radius: 1px;
+}
+
+#buglist .command-section {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#buglist table,tr {
+    width: 98%;
+    border-style: solid;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: #cbcbcb;
+    font-size: 0.9em;
+}
+#buglist table th {
+    background-color: #868d9b;
+    color: #c5c5c5;
+    padding: 20px 0;
+    text-align: center;
+    font-weight: 400;
+}
+#buglist table th a{
+    color: white;
+}
+
+
+#buglist table {
+    margin: 0px 10px;
+}
+
+#buglist td,th {
+    padding: 16px 2px;
+}
+
+#buglist tr:nth-child(odd) {
+    background-color: #e8e8e8;
+}
