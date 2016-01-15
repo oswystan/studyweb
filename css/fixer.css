@@ -14,8 +14,8 @@ body {
     background-color: #e8e8e8;
 }
 
-input {
-    border-style: solid ;
+input, textarea {
+    border-style: solid;
     border-width: 1px;
     border-color: #cbcbcb;
     font-family: skia;
@@ -28,6 +28,13 @@ a {
     text-decoration: none;
 }
 
+/*
+***************************************************************
+*
+*
+*
+***************************************************************
+*/
 .btn {
     background-color: #00ad33;
     display: inline-block;
@@ -36,23 +43,59 @@ a {
     padding: 16px 20px;
     border-radius: 2px;
 }
+
 .btn:hover {
     background-color: #00cb3a;
 }
+
 .btn:active {
     background-color: #00be38;
 }
 
 .blanker {
-    clear: both; height: 20px; width: 100%;
+    clear: both;
+    height: 20px;
+    width: 100%;
+}
+/*
+***************************************************************
+*
+* container
+*
+***************************************************************
+*/
+.team-id {
+    width: 6em;
+}
+.user-id {
+    width: 6em;
+}
+.team-name {
+    width: 20em;
+}
+.user-nicky {
+    width: 14em;
+}
+.email {
+    width: 16em;
 }
 
+/*
+***************************************************************
+*
+* container
+*
+***************************************************************
+*/
 .container {
     display: inline-block;
     float: left;
     background-color: white;
     box-shadow: 2px 2px 2px #bbb;
     color: #555555;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cecece;
     border-radius: 4px;
     padding: 0;
     margin: 4px;
@@ -69,42 +112,87 @@ a {
 }
 
 .container ul {
-    padding: 10px;
+    padding: 16px 10px;
     margin: 0;
     border-radius: 4px;
     float: left;
     font-size: 0.9em;
     list-style-type: none;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: #bbbbbb;
 }
+
 .container ul:hover {
     background-color: #e8e8e8;
 }
 
-.container ul li{
+.container ul li {
     display: inline-block;
-    width: auto;
-    overflow: hidden;
-}
-.container ul li:before {
-    display: inline-block;
+    width: 100px;
     float: left;
-    text-align: right;
-    padding: 0 14px 0 0;
-    width: 80px;
-    content: attr(data-label) ":";
-    font-weight: bold;
+    padding: 0 8px;
 }
 
-#buglist ul  {
+/*
+***************************************************************
+*
+* teamlist
+*
+***************************************************************
+*/
+#teamlist-joined .team-name {
+    width: 54%;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: #bbbbbb;
+    padding: 0 8px;
+}
+
+#teamlist-joined .team-leader {
+    width: 34%;
+    padding: 0 8px;
+}
+
+#teamlist-created .team-id {
+    width: 20%;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: #bbbbbb;
+}
+
+#teamlist-created .team-name {
+    width: 70%;
+}
+
+/*
+***************************************************************
+*
+* buglist
+*
+***************************************************************
+*/
+#buglist ul {
     border-style: solid;
     border-width: 0 0 1px 0;
 
     border-color: #cbcbcb;
 }
 
+#buglist ul li {
+    width: 300px;
+    padding: 4px 0;
+}
+
 #buglist ul li:before {
-    width: 120px;
+    display: inline-block;
+    width: 110px;
     line-height: 50px;
+    content: attr(data-label) ":";
+    text-align: right;
+    padding-right: 8px;
+    font-weight: 500;
+    font-size: 0.9em;
 }
 
 #buglist ul input {
@@ -116,11 +204,13 @@ a {
     margin: 0;
     padding: 0;
 }
-#buglist .page-section a{
+
+#buglist .page-section a {
     display: inline-block;
     padding: 16px 24px;
 }
-#buglist .page-section a:hover{
+
+#buglist .page-section a:hover {
     background-color: #cbcbcb;
     border-radius: 1px;
 }
@@ -131,7 +221,7 @@ a {
     padding: 0;
 }
 
-#buglist table,tr {
+#buglist table, tr {
     width: 98%;
     border-style: solid;
     border-collapse: collapse;
@@ -139,6 +229,7 @@ a {
     border-color: #cbcbcb;
     font-size: 0.9em;
 }
+
 #buglist table th {
     background-color: #868d9b;
     color: #c5c5c5;
@@ -146,19 +237,174 @@ a {
     text-align: center;
     font-weight: 400;
 }
-#buglist table th a{
+
+#buglist table th a {
     color: white;
 }
-
 
 #buglist table {
     margin: 0px 10px;
 }
 
-#buglist td,th {
+#buglist td, th {
     padding: 16px 2px;
 }
 
 #buglist tr:nth-child(odd) {
     background-color: #e8e8e8;
 }
+
+/*
+***************************************************************
+*
+* detail-team-modify
+*
+***************************************************************
+*/
+
+#detail-team-modify .logo,
+#detail-team-show .logo {
+    width: 100%;
+}
+#detail-team-modify textarea {
+    line-height: 1.4em;
+    font-size: 1.1em;
+}
+#detail-team-modify ul.labeled li,
+#detail-team-show ul.labeled li {
+    width: 280px;
+    padding: 4px 0;
+}
+
+#detail-team-modify ul li.filled {
+    width: 90%;
+}
+
+#detail-team-modify ul.labeled li:before,
+#detail-team-show ul.labeled li:before {
+    display: inline-block;
+    width: 150px;
+    content: attr(data-label) ":";
+    text-align: right;
+    padding-right: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+#detail-team-modify img.portrait,
+#detail-team-show img.portrait {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-block;
+    float: left;
+}
+
+#detail-team-modify .users,
+#detail-team-show .users {
+    max-height: 300px;
+    overflow: auto;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: #bbbbbb;
+    float: left;
+    display: block;
+}
+
+#detail-team-modify ul.user-list li,
+#detail-team-show ul.user-list li {
+    height: 32px;
+    width: auto;
+    line-height: 32px;
+}
+
+#detail-team-modify ul.user-list li.user-id,
+#detail-team-show ul.user-list li.user-id  {
+    width: 32px;
+}
+
+#detail-team-modify ul.user-list li.user-nicky,
+#detail-team-show ul.user-list li.user-nicky {
+    width: 100px;
+}
+
+#detail-team-modify ul.user-list li.email,
+#detail-team-show ul.user-list li.email {
+    width: 140px;
+}
+
+/*
+***************************************************************
+*
+* detail-user-modify
+*
+***************************************************************
+*/
+#detail-user-modify ul.labeled li:before,
+#detail-user-show ul.labeled li:before,
+#setting-pwd-modify ul.labeled li:before {
+    display: inline-block;
+    width: 120px;
+    content: attr(data-label) ":";
+    text-align: right;
+    padding-right: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+#detail-user-modify ul.labeled li,
+#detail-user-show ul.labeled li,
+#setting-pwd-modify ul.labeled li {
+    width: 360px;
+    margin: 4px 0;
+}
+
+#detail-user-modify input[type="file"] {
+    width: 185px;
+}
+
+/*
+***************************************************************
+*
+* detail-user-show
+*
+***************************************************************
+*/
+#detail-user-show .portrait {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+}
+#detail-user-show .portrait img {
+    padding: 4px;
+    width: 100%;
+    border-radius: 50%;
+}
+#detail-user-show .detail {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 78%;
+}
+
+#detail-user-show .detail ul {
+    padding: 30px 10px;
+    border-style: none;
+}
+#detail-user-show .detail ul:hover {
+    background-color: transparent;
+}
+
+
+
+
+/*
+***************************************************************
+*
+*
+*
+***************************************************************
+*/

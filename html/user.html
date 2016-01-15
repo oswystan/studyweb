@@ -5,20 +5,29 @@
     <title>fixer-user</title>
 
     <script type="text/javascript" src="../js/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/fixer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/fixer.css"/>
 
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
 
             // reset list width
-            $("#teamlist-joined li").css("width", $("#teamlist-joined").width()-20 + "px");
-            $("#teamlist-created li").css("width", $("#teamlist-created").width()-20 + "px");
-
+            $("#teamlist-joined ul").css("width", $("#teamlist-joined").width() - 20 + "px");
+            $("#teamlist-created ul").css("width", $("#teamlist-created").width() - 20 + "px");
+            $("#detail-team-modify ul").css("width", $("#detail-team-modify").width() - 20 + "px");
+            $("#detail-user-modify ul").css("width", $("#detail-user-modify").width() - 20 + "px");
+            $("#setting-pwd-modify ul").css("width", $("#setting-pwd-modify").width() - 20 + "px");
+            $("#detail-team-show ul").css("width", $("#detail-team-show").width() - 20 + "px");
+            $("#detail-user-show ul").css("width", $("#detail-user-show").width() - 20 + "px");
+            $("#detail-user-show div.detail ul").css("width", $("#detail-user-show div.detail").width() - 20 + "px");
 
             // hidden all container
             $("#teamlist-joined").hide();
             $("#teamlist-created").hide();
-            //$("#buglist").hide();
+            $("#buglist").hide();
+            $("#detail-team-modify").hide();
+            $("#detail-user-modify").hide();
+            $("#setting-pwd-modify").hide();
+            $("#detail-team-show").hide();
         });
     </script>
 
@@ -33,24 +42,26 @@
 <div id="teamlist-joined" class="container" style="width: 400px">
     <h3>TEAM-JOINED</h3>
     <ul>
-        <li data-label="ID"><a href="javascript: void(0)">1</a></li>
-        <li data-label="NAME">FOX</li>
-        <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+        <li class="team-name"><a href="javascript:void(0)">FOX</a></li>
+        <li class="team-leader"><a href="javascript:void(0)">wystan</a></li>
     </ul>
     <ul>
-        <li data-label="ID"><a href="javascript: void(0)">2</a></li>
-        <li data-label="NAME">MOUNTAIN</li>
-        <li data-label="LEADER"><a href="javascript:void(0)">peng</a></li>
+        <li class="team-name"><a href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="team-leader"><a href="javascript:void(0)">mo</a></li>
     </ul>
     <ul>
-        <li data-label="ID"><a href="javascript: void(0)">3</a></li>
-        <li data-label="NAME">wystudio-font-design</li>
-        <li data-label="LEADER"><a href="javascript:void(0)">momo</a></li>
+        <li class="team-name"><a href="javascript:void(0)">MOUNTAIN</a></li>
+        <li class="team-leader"><a href="javascript:void(0)">moniu</a></li>
+    </ul>
+    <ul>
+        <li class="team-name"><a href="javascript:void(0)">DOG</a></li>
+        <li class="team-leader"><a href="javascript:void(0)">moniu</a></li>
+    </ul>
+    <ul>
+        <li class="team-name"><a href="javascript:void(0)">FEED</a></li>
+        <li class="team-leader"><a href="javascript:void(0)">moniu</a></li>
     </ul>
 </div>
-
-
-
 
 <!------------------------------------------------------------------------
 -
@@ -61,38 +72,40 @@
 <div id="teamlist-created" class="container" style="width: 400px">
     <h3>TEAM-CREATED</h3>
     <ul>
-        <li data-label="ID">1</li>
-        <li data-label="NAME"><a href="javascript: void(0)">FOX</a></li>
+        <li class="team-id"><a href="javascript: void(0)">1</a></li>
+        <li class="team-name"><a href="javascript: void(0)">FOX</a></li>
     </ul>
     <ul>
-        <li data-label="ID">2</li>
-        <li data-label="NAME"><a href="javascript:void(0)">MOUNTAIN</a></li>
+        <li class="team-id"><a href="javascript: void(0)">4</a></li>
+        <li class="team-name"><a href="javascript: void(0)">DOG</a></li>
     </ul>
     <ul>
-        <li data-label="ID">3</li>
-        <li data-label="NAME"><a href="javascript:void(0)">wystuio-font-design-project</a></li>
+        <li class="team-id"><a href="javascript: void(0)">5</a></li>
+        <li class="team-name"><a href="javascript: void(0)">mountain</a></li>
+    </ul>
+    <ul>
+        <li class="team-id"><a href="javascript: void(0)">8</a></li>
+        <li class="team-name"><a href="javascript: void(0)">wystudio</a></li>
     </ul>
 </div>
-
-
 
 <!------------------------------------------------------------------------
 -
 - buglist
 -
 -------------------------------------------------------------------------->
-
 <div id="buglist" class="container" style="width: 1000px">
     <h3>BUGLIST</h3>
     <div class="filter-section">
         <ul>
-            <li data-label="TEAM-NAME"><input name="TEAM-NAME" type="text" /></li>
-            <li data-label="PRIORITY"><input name="PRIORITY" type="text" /></li>
-            <li data-label="STATUS"><input name="STATUS" type="text" /></li>
-            <li data-label="HANDLER"><input name="HANDLER" type="text" /></li>
-            <li data-label="CREATED"><input name="CREATED" type="text" /></li><br>
-            <li data-label="DATE-FROM"><input name="DATE-FROM" type="date" /></li>
-            <li data-label="DATE-TO"><input name="DATE-TO" type="date" /></li>
+            <li data-label="TEAM-NAME"><input name="TEAM-NAME" type="text"/></li>
+            <li data-label="PRIORITY"><input name="PRIORITY" type="text"/></li>
+            <li data-label="STATUS"><input name="STATUS" type="text"/></li>
+            <li data-label="HANDLER"><input name="HANDLER" type="text"/></li>
+            <li data-label="CREATED"><input name="CREATED" type="text"/></li>
+            <br>
+            <li data-label="DATE-FROM"><input name="DATE-FROM" type="date"/></li>
+            <li data-label="DATE-TO"><input name="DATE-TO" type="date"/></li>
         </ul>
     </div>
     <div class="blanker"></div>
@@ -198,6 +211,206 @@
     </div>
 </div>
 
+<!------------------------------------------------------------------------
+-
+- detail-team-modify
+-
+-------------------------------------------------------------------------->
+<div id="detail-team-modify" class="container" style="width: 600px">
+    <h3>TEAM-FOX</h3>
+    <img class="logo" src="../img/sherlock.jpg" alt=""/>
+    <ul class="labeled">
+        <li data-label="ID">1</li>
+        <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+        <li data-label="DATE">2012-08-25</li>
+        <li data-label="BUG_TAB">aef45612234</li>
+        <li data-label="BUG_TAB_STATUS">ACTIVE</li>
+        <li data-label="STATUS">ACTIVE</li>
+    </ul>
+    <ul class="labeled">
+        <li class="filled" data-label="NAME">
+            <input type="text" name="team-name" value="FOX"></li>
+        <li class="filled" data-label="ACTIVE">
+            <input type="checkbox" name="check-active" value="active">
+
+        </li>
+    </ul>
+    <ul>
+        <textarea cols="58" rows="5">A team is a group of people or other animals linked in a common purpose. Human teams are especially appropriate for conducting tasks that are high in complexity and have many interdependent subtasks</textarea>
+    </ul>
+
+    <div class="users">
+        <ul class="user-list">
+            <li><input type="checkbox"></li>
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
+        </ul>
+        <ul class="user-list">
+            <li><input type="checkbox"></li>
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id" data-label="ID">2</li>
+            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
+            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+        </ul>
+        <ul class="user-list">
+            <li><input type="checkbox"></li>
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id" data-label="ID">2</li>
+            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
+            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+        </ul>
+        <ul class="user-list">
+            <li><input type="checkbox"></li>
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id" data-label="ID">2</li>
+            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
+            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+        </ul>
+    </div>
+
+    <div class="blanker"></div>
+    <div align="center">
+        <input type="text" value="" name="member-name" placeholder="input member name...">
+        <a class="btn" href="javascript:void(0)">ADD</a>
+        <a class="btn" href="javascript:void(0)">DELETE</a>
+        <a class="btn" href="javascript:void(0)">SUBMIT</a>
+    </div>
+    <div class="blanker"></div>
+
+</div>
+
+<!------------------------------------------------------------------------
+-
+- detail-user-modify
+-
+-------------------------------------------------------------------------->
+<div id="detail-user-modify" class="container" style="width: 500px">
+    <h3>USER</h3>
+    <ul class="labeled">
+        <li data-label="NICKY-NAME"><input type="text" name="nicky"></li>
+        <li data-label="EMAIL"><input type="email" name="email"></li>
+        <li data-label="PORTRAIT"><input type="file" name="portrait"></li>
+    </ul>
+    <div class="blanker"></div>
+    <div align="center" style="margin: 0 0 10px 0; clear: both;">
+        <a class="btn" href="javascript:void(0)">SUBMIT</a>
+    </div>
+</div>
+
+<!------------------------------------------------------------------------
+-
+- setting-pwd-modify
+-
+-------------------------------------------------------------------------->
+<div id="setting-pwd-modify" class="container" style="width: 500px">
+    <h3>PASSWORD</h3>
+    <ul class="labeled">
+        <li data-label="OLD"><input type="password" name="old"></li>
+        <li data-label="NEW"><input type="password" name="new"></li>
+        <li data-label="CONFIRM"><input type="password" name="confirm"></li>
+    </ul>
+    <div class="blanker"></div>
+    <div align="center" style="margin: 0 0 10px 0; clear: both;">
+        <a class="btn" href="javascript:void(0)">SUBMIT</a>
+    </div>
+</div>
+
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
+<div id="detail-team-show" class="container" style="width: 600px">
+    <h3>TEAM-FOX</h3>
+    <img class="logo" src="../img/sherlock.jpg" alt=""/>
+    <ul class="labeled">
+        <li data-label="ID">1</li>
+        <li data-label="NAME">FOX</li>
+        <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+        <li data-label="DATE">2012-08-25</li>
+        <li data-label="BUG_TAB">aef45612234</li>
+        <li data-label="BUG_TAB_STATUS">ACTIVE</li>
+        <li data-label="STATUS">ACTIVE</li>
+    </ul>
+    <ul>
+        <p style="line-height: 1.4em; font-size: 1.2em;">A team is a group of people or other animals linked in a common
+            purpose. Human teams are especially appropriate for conducting tasks that are high in complexity and have
+            many interdependent subtasks</p>
+    </ul>
+
+    <div class="users">
+        <ul class="user-list">
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
+        </ul>
+        <ul class="user-list">
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id" data-label="ID">2</li>
+            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
+            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+        </ul>
+        <ul class="user-list">
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id" data-label="ID">2</li>
+            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
+            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+        </ul>
+        <ul class="user-list">
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id" data-label="ID">2</li>
+            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
+            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+        </ul>
+    </div>
+
+
+</div>
+
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
+<div id="detail-user-show" class="container" style="width: 600px">
+    <h3>PROFILE</h3>
+    <div class="portrait">
+        <img src="../img/1.jpg" alt="">
+    </div>
+    <div class="detail" >
+        <ul class="labeled">
+            <li data-label="ID">1</li>
+            <li data-label="NICKY-NAME">wystan</li>
+            <li data-label="EMAIL">wystan@sogo.com</li>
+        </ul>
+    </div>
+    <ul style="height:0; padding: 0 10px;"></ul>
+    <div class="blanker"></div>
+
+    <ul>
+        <li class="team-name"><a href="javascript:void(0)">FOX</a></li>
+        <li class="user-nicky"><a href="javascript:void(0)">wystan</a></li>
+    </ul>
+    <ul>
+        <li class="team-name"><a href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="user-nicky"><a href="javascript:void(0)">mo</a></li>
+    </ul>
+    <ul>
+        <li class="team-name"><a href="javascript:void(0)">MOUNTAIN</a></li>
+        <li class="user-nicky"><a href="javascript:void(0)">moniu</a></li>
+    </ul>
+    <ul>
+        <li class="team-name"><a href="javascript:void(0)">DOG</a></li>
+        <li class="user-nicky"><a href="javascript:void(0)">moniu</a></li>
+    </ul>
+    <ul>
+        <li class="team-name"><a href="javascript:void(0)">FEED</a></li>
+        <li class="user-nicky"><a href="javascript:void(0)">moniu</a></li>
+    </ul>
+</div>
 
 <!------------------------------------------------------------------------
 -
@@ -205,8 +418,11 @@
 -
 -------------------------------------------------------------------------->
 
-
-
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
 
 <!------------------------------------------------------------------------
 -
@@ -214,8 +430,41 @@
 -
 -------------------------------------------------------------------------->
 
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
 
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
 
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------
+-
+-
+-
+-------------------------------------------------------------------------->
 
 <!------------------------------------------------------------------------
 -
