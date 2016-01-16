@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../css/fixer.css"/>
 
     <script type="text/javascript">
+
+
         $(document).ready(function () {
 
             // reset list width
@@ -20,46 +22,194 @@
             $("#detail-user-show ul").css("width", $("#detail-user-show").width() - 20 + "px");
             $("#detail-user-show div.detail ul").css("width", $("#detail-user-show div.detail").width() - 20 + "px");
 
-            // hidden all container
-            $("#teamlist-joined").hide();
-            $("#teamlist-created").hide();
-            $("#buglist").hide();
-            $("#detail-team-modify").hide();
-            $("#detail-user-modify").hide();
-            $("#setting-pwd-modify").hide();
-            $("#detail-team-show").hide();
+
+            var containers = [$("#teamlist-joined"), $("#teamlist-created"),
+                              $("#buglist"), $("#detail-team-modify"),
+                              $("#detail-team-modify"), $("#detail-user-modify"),
+                              $("#setting-pwd-modify"), $("#detail-team-show"),
+                              $("#detail-user-show")];
+
+            function hideAll()
+            {
+                for(var i=0; i<containers.length; i++)
+                {
+                    containers[i].hide();
+                }
+            }
+            hideAll();
+
+            //====================================================
+            //
+            // NAV bar click functions
+            //
+            //====================================================
+            $("#nav [name='teamlist']").click(function () {
+                hideAll();
+                $("#teamlist-joined").show();
+                $("#teamlist-created").show();
+            })
+
+            $("#nav [name='buglist']").click(function () {
+                hideAll();
+                $("#buglist").show();
+            })
+
+            $("#nav [name='stat']").click(function () {
+                hideAll();
+            })
+
+            $("#nav [name='setting']").click(function () {
+                hideAll();
+                $("#detail-user-modify").show();
+                $("#setting-pwd-modify").show();
+            })
+
+            //====================================================
+            //
+            // team list click functions
+            //
+            //====================================================
+            $("#teamlist-joined ul a").each(function () {
+                if($(this).attr("name") == "team-name") {
+                    $(this).click(function () {
+                        hideAll();
+                        $("#detail-team-show").show();
+                    });
+                } else if($(this).attr("name") == "team-leader") {
+                    $(this).click(function () {
+                        hideAll();
+                        $("#detail-user-show").show();
+                    });
+                }
+            });
+
+            $("#teamlist-created ul a").each(function () {
+                var _name = $(this).attr("name");
+                if(_name == "team-name") {
+                    $(this).click(function () {
+                        hideAll();
+                        $("#detail-team-show").show();
+                    });
+                } else if(_name == "team-id") {
+                    $(this).click(function () {
+                        hideAll();
+                        $("#detail-team-show").show();
+                    });
+                } else if(_name == "new") {
+                    $(this).click(function () {
+                        hideAll();
+                        $("#detail-team-modify").show();
+                    });
+                }
+            });
+
+            //====================================================
+            //
+            // bug list click functions
+            //
+            //====================================================
+            $("#buglist tr a").click(function () {
+                var _name = $(this).attr("name");
+                if(_name == "creator" || _name == "handler") {
+                    hideAll();
+                    $("#detail-user-show").show();
+                }
+            });
+
+
+            //====================================================
+            //
+            // detail-user-show click functions
+            //
+            //====================================================
+            $("#detail-user-show ul a").click(function () {
+                var _name = $(this).attr("name");
+                if(_name == "team-id" || _name == "team-name") {
+                    hideAll();
+                    $("#detail-team-show").show();
+                }else if(_name == "team-leader") {
+                    hideAll();
+                    $("#detail-user-show").show();
+                }
+            });
+
+            //====================================================
+            //
+            // detail-team-modify click functions
+            //
+            //====================================================
+            $("#detail-team-modify ul a").click(function () {
+                var _name = $(this).attr("name");
+                if(_name == "team-leader" || _name == "team-member") {
+                    hideAll();
+                    $("#detail-team-show").show();
+                }
+            });
+
+            //====================================================
+            //
+            // detail-team-modify click functions
+            //
+            //====================================================
+            $("#detail-team-show ul a").click(function () {
+                var _name = $(this).attr("name");
+                if(_name == "team-leader" || _name == "team-member") {
+                    hideAll();
+                    $("#detail-user-show").show();
+                }
+            });
         });
     </script>
 
 </head>
 <body>
+<!------------------------------------------------------------------------
+-
+- NAV bar
+-
+-------------------------------------------------------------------------->
+<div id="nav">
+    <h3>fixer</h3>
+    <ul>
+        <li><a name="teamlist" href="javascript:void(0)"">TEAM</a></li>
+        <li><a name="buglist" href="javascript:void(0)">BUGS</a></li>
+        <li><a name="stat"href="javascript:void(0)">STAT</a></li>
+        <li><a name="setting" href="javascript:void(0)">SETTING</a></li>
+        <li><a name="logout" href="login.html">LOGOUT</a></li>
+    </ul>
+    <ul class="userinfo">
+        <li><img src="../img/1.jpg" /></li>
+        <li><a href="javascript: void(0)">winner</a></li>
+    </ul>
+</div>
+
 
 <!------------------------------------------------------------------------
 -
 - teamlist-joined
 -
 -------------------------------------------------------------------------->
-<div id="teamlist-joined" class="container" style="width: 400px">
+<div id="teamlist-joined" class="container" style="width: 500px">
     <h3>TEAM-JOINED</h3>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">FOX</a></li>
-        <li class="team-leader"><a href="javascript:void(0)">wystan</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">FOX</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">wystan</a></li>
     </ul>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">wystan-studio-font</a></li>
-        <li class="team-leader"><a href="javascript:void(0)">mo</a></li>
+        <li class="team-name"><a name="team-name"  href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">mo</a></li>
     </ul>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">MOUNTAIN</a></li>
-        <li class="team-leader"><a href="javascript:void(0)">moniu</a></li>
+        <li class="team-name"><a name="team-name"  href="javascript:void(0)">MOUNTAIN</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
     </ul>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">DOG</a></li>
-        <li class="team-leader"><a href="javascript:void(0)">moniu</a></li>
+        <li class="team-name"><a name="team-name"  href="javascript:void(0)">DOG</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
     </ul>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">FEED</a></li>
-        <li class="team-leader"><a href="javascript:void(0)">moniu</a></li>
+        <li class="team-name"><a name="team-name"  href="javascript:void(0)">FEED</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
     </ul>
 </div>
 
@@ -69,23 +219,35 @@
 -
 -------------------------------------------------------------------------->
 
-<div id="teamlist-created" class="container" style="width: 400px">
+<div id="teamlist-created" class="container" style="width: 528px">
     <h3>TEAM-CREATED</h3>
     <ul>
-        <li class="team-id"><a href="javascript: void(0)">1</a></li>
-        <li class="team-name"><a href="javascript: void(0)">FOX</a></li>
+        <a name="new" class="btn" href="javascript:void(0)">NEW</a>
     </ul>
     <ul>
-        <li class="team-id"><a href="javascript: void(0)">4</a></li>
-        <li class="team-name"><a href="javascript: void(0)">DOG</a></li>
+        <li class="team-id"><a name="team-id" href="javascript: void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript: void(0)">FOX</a></li>
+        <li class="date">2012-12-25</li>
     </ul>
     <ul>
-        <li class="team-id"><a href="javascript: void(0)">5</a></li>
-        <li class="team-name"><a href="javascript: void(0)">mountain</a></li>
+        <li class="team-id"><a name="team-id" href="javascript: void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript: void(0)">wystudio-font-project</a></li>
+        <li class="date">2012-12-25</li>
     </ul>
     <ul>
-        <li class="team-id"><a href="javascript: void(0)">8</a></li>
-        <li class="team-name"><a href="javascript: void(0)">wystudio</a></li>
+        <li class="team-id"><a name="team-id" href="javascript: void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript: void(0)">FOX</a></li>
+        <li class="date">2012-12-25</li>
+    </ul>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript: void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript: void(0)">FOX</a></li>
+        <li class="date">2012-12-25</li>
+    </ul>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript: void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript: void(0)">FOX</a></li>
+        <li class="date">2012-12-25</li>
     </ul>
 </div>
 
@@ -126,74 +288,74 @@
             <th>TITLE</th>
         </tr>
         <tr>
-            <td>1</td>
-            <td>wystan</td>
+            <td>3</td>
+            <td><a name="handler" href="javascript:void(0)">wystan</a></td>
             <td>high</td>
             <td>open</td>
-            <td>wystan</td>
-            <td>2012-12-24 12:12:12</td>
-            <td>[FEATURE]need feature to sort by priority</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>wystan</td>
-            <td>high</td>
-            <td>open</td>
-            <td>wystan</td>
+            <td><a name="creator" href="javascript:void(0)">wystan</a></td>
             <td>2012-12-24 12:12:12</td>
             <td>[FEATURE]need feature to sort by priority</td>
         </tr>
         <tr>
             <td>3</td>
-            <td>wystan</td>
+            <td><a name="handler" href="javascript:void(0)">wystan</a></td>
             <td>high</td>
             <td>open</td>
-            <td>wystan</td>
+            <td><a name="creator" href="javascript:void(0)">wystan</a></td>
             <td>2012-12-24 12:12:12</td>
             <td>[FEATURE]need feature to sort by priority</td>
         </tr>
         <tr>
-            <td>4</td>
-            <td>wystan</td>
+            <td>3</td>
+            <td><a name="handler" href="javascript:void(0)">wystan</a></td>
             <td>high</td>
             <td>open</td>
-            <td>wystan</td>
+            <td><a name="creator" href="javascript:void(0)">wystan</a></td>
             <td>2012-12-24 12:12:12</td>
             <td>[FEATURE]need feature to sort by priority</td>
         </tr>
         <tr>
-            <td>5</td>
-            <td>wystan</td>
+            <td>3</td>
+            <td><a name="handler" href="javascript:void(0)">wystan</a></td>
             <td>high</td>
             <td>open</td>
-            <td>wystan</td>
+            <td><a name="creator" href="javascript:void(0)">wystan</a></td>
             <td>2012-12-24 12:12:12</td>
             <td>[FEATURE]need feature to sort by priority</td>
         </tr>
         <tr>
-            <td>6</td>
-            <td>wystan</td>
+            <td>3</td>
+            <td><a name="handler" href="javascript:void(0)">wystan</a></td>
             <td>high</td>
             <td>open</td>
-            <td>wystan</td>
+            <td><a name="creator" href="javascript:void(0)">wystan</a></td>
             <td>2012-12-24 12:12:12</td>
             <td>[FEATURE]need feature to sort by priority</td>
         </tr>
         <tr>
-            <td>7</td>
-            <td>wystan</td>
+            <td>3</td>
+            <td><a name="handler" href="javascript:void(0)">wystan</a></td>
             <td>high</td>
             <td>open</td>
-            <td>wystan</td>
+            <td><a name="creator" href="javascript:void(0)">wystan</a></td>
             <td>2012-12-24 12:12:12</td>
             <td>[FEATURE]need feature to sort by priority</td>
         </tr>
         <tr>
-            <td>8</td>
-            <td>wystan</td>
+            <td>3</td>
+            <td><a name="handler" href="javascript:void(0)">wystan</a></td>
             <td>high</td>
             <td>open</td>
-            <td>wystan</td>
+            <td><a name="creator" href="javascript:void(0)">wystan</a></td>
+            <td>2012-12-24 12:12:12</td>
+            <td>[FEATURE]need feature to sort by priority</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><a name="handler" href="javascript:void(0)">wystan</a></td>
+            <td>high</td>
+            <td>open</td>
+            <td><a name="creator" href="javascript:void(0)">wystan</a></td>
             <td>2012-12-24 12:12:12</td>
             <td>[FEATURE]need feature to sort by priority</td>
         </tr>
@@ -221,7 +383,7 @@
     <img class="logo" src="../img/sherlock.jpg" alt=""/>
     <ul class="labeled">
         <li data-label="ID">1</li>
-        <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+        <li data-label="LEADER"><a name="team-leader" href="javascript:void(0)">wystan</a></li>
         <li data-label="DATE">2012-08-25</li>
         <li data-label="BUG_TAB">aef45612234</li>
         <li data-label="BUG_TAB_STATUS">ACTIVE</li>
@@ -244,29 +406,36 @@
             <li><input type="checkbox"></li>
             <li><img class="portrait" src="../img/1.jpg"></li>
             <li class="user-id">1</li>
-            <li class="user-nicky"><a href="javascript:void(0)">wystan</a></li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
             <li class="email">wystan@sogo.com</li>
         </ul>
         <ul class="user-list">
             <li><input type="checkbox"></li>
             <li><img class="portrait" src="../img/1.jpg"></li>
-            <li class="user-id" data-label="ID">2</li>
-            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
-            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
         </ul>
         <ul class="user-list">
             <li><input type="checkbox"></li>
             <li><img class="portrait" src="../img/1.jpg"></li>
-            <li class="user-id" data-label="ID">2</li>
-            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
-            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
         </ul>
         <ul class="user-list">
             <li><input type="checkbox"></li>
             <li><img class="portrait" src="../img/1.jpg"></li>
-            <li class="user-id" data-label="ID">2</li>
-            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
-            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
+        </ul>
+        <ul class="user-list">
+            <li><input type="checkbox"></li>
+            <li><img class="portrait" src="../img/1.jpg"></li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
         </ul>
     </div>
 
@@ -328,7 +497,7 @@
     <ul class="labeled">
         <li data-label="ID">1</li>
         <li data-label="NAME">FOX</li>
-        <li data-label="LEADER"><a href="javascript:void(0)">wystan</a></li>
+        <li data-label="LEADER"><a name="team-leader" href="javascript:void(0)">wystan</a></li>
         <li data-label="DATE">2012-08-25</li>
         <li data-label="BUG_TAB">aef45612234</li>
         <li data-label="BUG_TAB_STATUS">ACTIVE</li>
@@ -344,26 +513,26 @@
         <ul class="user-list">
             <li><img class="portrait" src="../img/1.jpg"></li>
             <li class="user-id">1</li>
-            <li class="user-nicky"><a href="javascript:void(0)">wystan</a></li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
             <li class="email">wystan@sogo.com</li>
         </ul>
         <ul class="user-list">
             <li><img class="portrait" src="../img/1.jpg"></li>
-            <li class="user-id" data-label="ID">2</li>
-            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
-            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
         </ul>
         <ul class="user-list">
             <li><img class="portrait" src="../img/1.jpg"></li>
-            <li class="user-id" data-label="ID">2</li>
-            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
-            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
         </ul>
         <ul class="user-list">
             <li><img class="portrait" src="../img/1.jpg"></li>
-            <li class="user-id" data-label="ID">2</li>
-            <li class="user-nicky" data-label="NICKY"><a href="javascript:void(0)">momo</a></li>
-            <li class="email" data-label="EMAIL">momoniu@sogo.com</li>
+            <li class="user-id">1</li>
+            <li class="user-nicky"><a name="team-member" href="javascript:void(0)">wystan</a></li>
+            <li class="email">wystan@sogo.com</li>
         </ul>
     </div>
 
@@ -390,25 +559,69 @@
     <ul style="height:0; padding: 0 10px;"></ul>
     <div class="blanker"></div>
 
+    <h4>TEAMS JOINED</h4>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">FOX</a></li>
-        <li class="user-nicky"><a href="javascript:void(0)">wystan</a></li>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">FEED</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
     </ul>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">wystan-studio-font</a></li>
-        <li class="user-nicky"><a href="javascript:void(0)">mo</a></li>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">FEED</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
     </ul>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">MOUNTAIN</a></li>
-        <li class="user-nicky"><a href="javascript:void(0)">moniu</a></li>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">FEED</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
     </ul>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">DOG</a></li>
-        <li class="user-nicky"><a href="javascript:void(0)">moniu</a></li>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">FEED</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
     </ul>
     <ul>
-        <li class="team-name"><a href="javascript:void(0)">FEED</a></li>
-        <li class="user-nicky"><a href="javascript:void(0)">moniu</a></li>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">FEED</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
+    </ul>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">1</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">FEED</a></li>
+        <li class="user-nicky"><a name="team-leader" href="javascript:void(0)">moniu</a></li>
+    </ul>
+
+    <div class="blanker"></div>
+    <h4>TEAMS CREATED</h4>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">2</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="date">2015-10-28</li>
+    </ul>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">2</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="date">2015-10-28</li>
+    </ul>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">2</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="date">2015-10-28</li>
+    </ul>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">2</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="date">2015-10-28</li>
+    </ul>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">2</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="date">2015-10-28</li>
+    </ul>
+    <ul>
+        <li class="team-id"><a name="team-id" href="javascript:void(0)">2</a></li>
+        <li class="team-name"><a name="team-name" href="javascript:void(0)">wystan-studio-font</a></li>
+        <li class="date">2015-10-28</li>
     </ul>
 </div>
 
@@ -466,10 +679,14 @@
 -
 -------------------------------------------------------------------------->
 
+
 <!------------------------------------------------------------------------
 -
 -
 -
 -------------------------------------------------------------------------->
+<div class="blanker"></div>
+<div class="footer"> Copyright (C) wystan 2015 | About Us | Contact Us | Join Us</div>
+
 </body>
 </html>
