@@ -139,13 +139,22 @@ a {
     padding: 16px 20px;
     border-radius: 2px;
 }
-
 .btn:hover {
     background-color: #00cb3a;
 }
-
 .btn:active {
     background-color: #00be38;
+}
+
+.btn.orange:hover {
+    background-color: #f78900;
+}
+
+.btn.orange {
+    background-color: #e47700;
+}
+.btn.orange:active {
+    background-color: #ec7d00;
 }
 
 .blanker {
@@ -185,6 +194,10 @@ a {
 .user-list {
     max-height: 300px;
     overflow: auto;
+}
+.operation {
+    text-align: center;
+    margin: 10px 0;
 }
 
 /*
@@ -398,6 +411,7 @@ a {
     height: 32px;
     border-radius: 50%;
     display: inline-block;
+    vertical-align: middle;
 }
 
 #detail-team-modify .users,
