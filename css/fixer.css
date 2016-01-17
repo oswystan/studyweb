@@ -178,6 +178,14 @@ a {
 .date {
     width: 10em;
 }
+.team-list {
+    max-height: 300px;
+    overflow: auto;
+}
+.user-list {
+    max-height: 300px;
+    overflow: auto;
+}
 
 /*
 ***************************************************************
@@ -188,7 +196,6 @@ a {
 */
 .container {
     display: inline-block;
-    float: left;
     background-color: white;
     box-shadow: 2px 2px 2px #bbb;
     color: #555555;
@@ -198,6 +205,7 @@ a {
     border-radius: 4px;
     padding: 0;
     margin: 4px;
+    text-align: left;
 }
 
 .container h3 {
@@ -221,7 +229,6 @@ a {
     padding: 16px 10px;
     margin: 0;
     border-radius: 4px;
-    float: left;
     font-size: 0.9em;
     list-style-type: none;
     border-style: solid;
@@ -235,7 +242,6 @@ a {
 
 .container ul li {
     display: inline-block;
-    float: left;
     padding: 0 8px;
 }
 
@@ -255,7 +261,7 @@ a {
 }
 
 #buglist ul li {
-    width: 300px;
+    width: 340px;
     padding: 4px 0;
 }
 
@@ -271,7 +277,7 @@ a {
 }
 
 #buglist ul input {
-    width: 140px;
+    width: 180px;
 }
 
 #buglist .page-section {
@@ -321,12 +327,31 @@ a {
     margin: 0px 10px;
 }
 
-#buglist td, th {
+#buglist th, td{
     padding: 16px 2px;
+    text-align: center;
+}
+#buglist th.date {
+    width: 80px;
+ }
+#buglist th.id {
+    width: 60px;
+}
+#buglist th.user {
+    width: 100px;
+}
+#buglist th.priority {
+     width: 100px;
+}
+#buglist th.status {
+     width: 100px;
 }
 
 #buglist tr:nth-child(odd) {
     background-color: #e8e8e8;
+}
+#buglist td:last-child {
+    text-align: left;
 }
 
 /*
@@ -343,7 +368,8 @@ a {
 }
 #detail-team-modify textarea {
     line-height: 1.4em;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    width: 96%;
 }
 #detail-team-modify ul.labeled li,
 #detail-team-show ul.labeled li {
@@ -372,7 +398,6 @@ a {
     height: 32px;
     border-radius: 50%;
     display: inline-block;
-    float: left;
 }
 
 #detail-team-modify .users,
@@ -382,7 +407,6 @@ a {
     border-style: solid;
     border-width: 0 0 1px 0;
     border-color: #bbbbbb;
-    float: left;
     display: block;
 }
 
@@ -447,10 +471,10 @@ a {
 */
 #detail-user-show .portrait {
     display: inline-block;
-    float: left;
     margin: 0;
     padding: 0;
     width: 20%;
+    float: left;
 }
 #detail-user-show .portrait img {
     padding: 4px;
@@ -459,15 +483,17 @@ a {
 }
 #detail-user-show .detail {
     display: inline-block;
-    float: left;
     margin: 0;
     padding: 0;
     width: 78%;
+    vertical-align: middle;
+    float: right;
 }
 
 #detail-user-show .detail ul {
     padding: 30px 10px;
     border-style: none;
+    margin: 0;
 }
 #detail-user-show .detail ul:hover {
     background-color: transparent;

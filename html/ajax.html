@@ -23,6 +23,10 @@
                     $("#jsonsex").text("SEX:" + obj[0].sex);
                 });
             });
+
+            $("#div_ul").each(function () {
+                console.log($(this).find("li"));
+            });
         })
     </script>
 
@@ -71,5 +75,11 @@
         <p id="jsonage"></p>
     </div>
 
+    <div id="div_ul">
+        <ul>
+            <li>this</li>
+            <li>that</li>
+        </ul>
+    </div>
 </body>
 </html>
