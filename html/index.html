@@ -159,8 +159,27 @@ http://www.w3school.com.cn/css/
     <a  href="javascript:void(0)" onclick="change()">change</a>
     <a href="javascript:void(0)" onclick="showNav()">Nav</a>
     <br>
+
+    <input type="file" id="input-file" multiple="multiple">
+    <a href="javascript:void(0)" onclick="dump()">dump file</a>
     <br>
     <br>
+
 </body>
+<script type="text/javascript">
+    function dump() {
+        var obj = document.getElementById("input-file");
+        for(var i=0; i<obj.files.length; i++) {
+            console.log(obj.files[i].name);
+        }
+        var img = document.getElementById("portrait");
+        obj.select();
+        var str = window.URL.createObjectURL(obj.files.item(0));
+        console.log(str);
+        img.src = str;
+    }
+
+</script>
+
 
 </html>

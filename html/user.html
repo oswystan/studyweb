@@ -91,12 +91,11 @@
                 <li data-label="DATE-TO"><input name="DATE-TO" type="date"/></li>
             </ul>
         </div>
-        <div class="blanker"></div>
-        <div class="command-section" align="right">
-            <a class="btn" href="javascript:void(0)">SEARCH..</a>
-            <a class="btn" href="javascript:void(0)">NEW</a>
-            <a class="btn" href="javascript:void(0)">EXPORT</a>
-            <a class="btn" href="javascript:void(0)">EXPORT-ALL</a>
+        <div class="operation">
+            <a name="op-search"     class="btn" href="javascript:void(0)">SEARCH..</a>
+            <a name="op-new"        class="btn" href="javascript:void(0)">NEW</a>
+            <a name="op-export"     class="btn" href="javascript:void(0)">EXPORT</a>
+            <a name="op-export-all" class="btn" href="javascript:void(0)">EXPORT-ALL</a>
         </div>
         <table name="buglist">
             <tr name="header">
@@ -300,12 +299,71 @@
     -
     -
     -------------------------------------------------------------------------->
+    <div id="team-new" class="container" style="width: 660px">
+        <h3>NEW</h3>
+        <div name="input-section">
+            <ul class="labeled">
+                <li data-label="NAME" class="filled"><input name="team-name" type="text"></li>
+                <li data-label="GOAL" class="filled"><textarea></textarea></li>
+                <li data-label="LOGO">
+                    <a name="logo" class="btn" href="javascript:void(0)">SELECT A LOGO</a>
+                    <input name="input-logo" type="file" style="display: none;">
+                </li>
+            </ul>
+            <ul>
+                <img name="team-logo" src="" alt="" width="100%">
+            </ul>
+        </div>
+
+        <div class="user-list" name="team-members">
+            <ul>
+                <li><input name="check" type="checkbox"></li>
+                <li><img name="portrait" class="portrait" src="../img/1.jpg"></li>
+                <li class="user-id"><a name="user-id" href="javascript:void(0)">1</a></li>
+                <li class="user-nicky"><a name="user-nicky" href="javascript:void(0)">wystan</a></li>
+                <li name="user-email" class="email">wystan@sogo.com</li>
+            </ul>
+        </div>
+        <div name="opertion" class="operation">
+            <input type="text" value="" name="member-name" placeholder="input member name...">
+            <a name="op-add" class="btn" href="javascript:void(0)">ADD</a>
+            <a name="op-delete" class="btn" href="javascript:void(0)">DELETE</a>
+            <a name="op-submit" class="btn orange" href="javascript:void(0)">SUBMIT</a>
+        </div>
+    </div>
 
     <!------------------------------------------------------------------------
     -
     -
     -
     -------------------------------------------------------------------------->
+    <div id="bug-new" class="container" style="width: 660px">
+        <h3>NEW</h3>
+        <div name="input-section">
+            <ul class="labeled">
+                <li data-label="TEAM"><input name="team-name" type="text"></li>
+                <li data-label="TEMPLATE">
+                    <select name="template">
+                        <option value="1">TMPLATE1</option>
+                    </select>
+                </li>
+                <li data-label="PRIORITY">
+                    <select name="priority" >
+                        <option value="1">normal</option>
+                        <option value="2">high</option>
+                        <option value="3">suggestion</option>
+                        <option value="4">fatal</option>
+                    </select>
+                </li>
+                <li data-label="ASSIGN TO"><input name="handler" type="text"></li>
+                <li data-label="TITLE"><input name="title" type="text"></li>
+                <li data-label="DETAIL"><textarea name="detail"></textarea></li>
+            </ul>
+        </div>
+        <div name="opertion" class="operation">
+            <a name="op-submit" class="btn orange" href="javascript:void(0)">SUBMIT</a>
+        </div>
+    </div>
 
     <!------------------------------------------------------------------------
     -
@@ -337,11 +395,21 @@
     $("#detail-user-show div.detail ul").css("width", $("#detail-user-show div.detail").width() - 20 + "px");
 
 
+    $("#team-new a[name='logo']").click(function () {
+        var f = $("#team-new input[name='input-logo']")[0];
+        $(f).click();
+        $(f).change(function () {
+            console.log(this.files);
+            var str = window.URL.createObjectURL(this.files.item(0));
+            $("#team-new img[name='team-logo']").attr("src", str);
+        });
+    });
+
     var containers = [$("#teamlist-joined"), $("#teamlist-created"),
         $("#buglist"), $("#detail-team-modify"),
         $("#detail-team-modify"), $("#detail-user-modify"),
         $("#setting-pwd-modify"), $("#detail-team-show"),
-        $("#detail-user-show")];
+        $("#detail-user-show"), $("#team-new"), ];
 
     // hide all div first
     function hideAll() {
@@ -566,9 +634,9 @@
             div.appendChild(item);
         }
 
-
         detail.show();
     }
+
 
     //====================================================
     //
@@ -597,6 +665,20 @@
         $("#setting-pwd-modify").show();
     });
 
+    $("#buglist [name='op-new']").click(function () {
+        hideAll();
+        $("#bug-new").show();
+    });
+
+    //====================================================
+    //
+    // bind team-new div
+    //
+    //====================================================
+    $("#teamlist-created [name='op-new']").click(function () {
+        hideAll();
+        $("#team-new").show();
+    })
 
     //====================================================
     //
@@ -627,6 +709,7 @@
             $("#detail-user-show").show();
         }
     });
+
 
     //====================================================
     //
