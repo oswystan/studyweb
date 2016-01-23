@@ -77,7 +77,7 @@
     - buglist
     -
     -------------------------------------------------------------------------->
-    <div id="buglist" class="container" style="width: 900px">
+    <div id="buglist" class="container" style="width: 900px;">
         <h3>BUGLIST</h3>
         <div class="filter-section">
             <ul>
@@ -324,7 +324,7 @@
                 <li name="user-email" class="email">wystan@sogo.com</li>
             </ul>
         </div>
-        <div name="opertion" class="operation">
+        <div name="operation" class="operation">
             <input type="text" value="" name="member-name" placeholder="input member name...">
             <a name="op-add" class="btn" href="javascript:void(0)">ADD</a>
             <a name="op-delete" class="btn" href="javascript:void(0)">DELETE</a>
@@ -337,11 +337,14 @@
     -
     -
     -------------------------------------------------------------------------->
-    <div id="bug-new" class="container" style="width: 660px">
+    <div id="bug-new" class="container" style="width: 840px">
         <h3>NEW</h3>
         <div name="input-section">
             <ul class="labeled">
+                <li data-label="TITLE"><input name="title" type="text"></li>
+                <li data-label="DETAIL"><textarea name="detail"></textarea></li>
                 <li data-label="TEAM"><input name="team-name" type="text"></li>
+                <li data-label="ASSIGN TO"><input name="handler" type="text"></li><br>
                 <li data-label="TEMPLATE">
                     <select name="template">
                         <option value="1">TMPLATE1</option>
@@ -354,10 +357,11 @@
                         <option value="3">suggestion</option>
                         <option value="4">fatal</option>
                     </select>
+                </li><br>
+                <li data-label="ATTACHMENT">
+                    <a name="attachment" class="btn" href="javascript:void(0)">ADD</a>
+                    <input name="input-attachment" type="file" multiple="multiple" style="display: none;">
                 </li>
-                <li data-label="ASSIGN TO"><input name="handler" type="text"></li>
-                <li data-label="TITLE"><input name="title" type="text"></li>
-                <li data-label="DETAIL"><textarea name="detail"></textarea></li>
             </ul>
         </div>
         <div name="opertion" class="operation">
@@ -370,6 +374,65 @@
     -
     -
     -------------------------------------------------------------------------->
+    <div id="bug-modify" class="container" style="width: 840px">
+        <h3>NEW</h3>
+        <div name="input-section">
+            <ul name="info" class="labeled">
+                <li data-label="ID">1</li>
+                <li data-label="TEAM">fox</li>
+                <li data-label="CREATED-BY">wystan</li>
+                <li data-label="DATE">2012-12-25</li>
+                <li data-label="HANDLER">wystan</li>
+                <li data-label="STATUS">OPEN</li>
+            </ul>
+            <ul class="labeled">
+                <li data-label="ATTACHMENT">
+                    <a href="../img/2.jpg">2.jpg</a>
+                    <a href="../img/1.jpg">1.jpg</a>
+                    <a href="../img/sherlock.jpg">sherlock.jpg</a>
+                </li>
+            </ul>
+            <ul class="labeled">
+                <li data-label="TITLE"><input name="title" type="text"></li>
+                <li data-label="OPINION"><textarea name="detail"></textarea></li>
+                <li data-label="NEXT-STEP">
+                    <input type="radio" name="opinion" checked="checked" value="FIX"> FIX
+                    <input type="radio" name="opinion" value="CLOSE"> CLOSE
+                    <input type="radio" name="opinion" value="TEST"> TEST
+                    <input type="radio" name="opinion" value="ASSIGN TO"> ASSIGN-TO
+                    <input name="handler" type="text">
+                </li>
+
+                <li data-label="ATTACHMENT">
+                    <a name="attachment" class="btn" href="javascript:void(0)">ADD</a>
+                    <input name="input-attachment" type="file" multiple="multiple" style="display: none;">
+                </li>
+
+            </ul>
+        </div>
+        <div name="operation" class="operation">
+            <a name="op-submit" class="btn orange" href="javascript:void(0)">SUBMIT</a>
+        </div>
+        <div name="changelog">
+            <ul>
+                HISTORY:
+                <li class="filled">
+                    <p>
+                        2012-12-26 21:12:20<br>
+                        wystan raised this bug.
+                    </p>
+                    <p>
+                        2012-12-26 21:12:20<br>
+                        wystan fixed this bug.
+                    </p>
+                    <p>
+                        2012-12-26 21:12:20<br>
+                        The EP consists entirely of upbeat tracks which have a rock and roll, jazz, and swing feel. It does not contain any examples of the relaxed tempo songs Dire Straits had been known for. It is the first release to feature drummer Terry Williams, who filled the spot after drummer Pick Withers left the group in August 1982. The tracks 'Badges, Posters, Stickers & T-Shirts' and 'If I Had You' have never been released on cd.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 
 </div>
@@ -409,7 +472,8 @@
         $("#buglist"), $("#detail-team-modify"),
         $("#detail-team-modify"), $("#detail-user-modify"),
         $("#setting-pwd-modify"), $("#detail-team-show"),
-        $("#detail-user-show"), $("#team-new"), ];
+        $("#detail-user-show"), $("#team-new"), $("#bug-new"),
+        $("#bug-modify")];
 
     // hide all div first
     function hideAll() {
@@ -515,7 +579,7 @@
             $(one).find("[name='status']").text(bl.bugs[i].status);
             $(one).find("[name='created_by']").text(bl.bugs[i].created_by).unbind("click").click(showUserDetail);
             $(one).find("[name='date']").text(bl.bugs[i].date);
-            $(one).find("[name='title']").text(bl.bugs[i].title);
+            $(one).find("[name='title']").text(bl.bugs[i].title).unbind("click").click(showBugModify);
             tab.appendChild(one);
         }
         if (bl.bugs.length == 0) {
@@ -635,6 +699,11 @@
         }
 
         detail.show();
+    }
+
+    function showBugModify() {
+        hideAll();
+        $("#bug-modify").show();
     }
 
 

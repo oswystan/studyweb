@@ -25,6 +25,7 @@ input, textarea, select {
 }
 select {
     height: 50px;
+    border-radius: 0;
 }
 
 a {
@@ -461,6 +462,7 @@ a {
 #detail-user-show ul.labeled li:before,
 #team-new ul.labeled li:before,
 #bug-new ul.labeled li:before,
+#bug-modify ul.labeled li:before,
 #setting-pwd-modify ul.labeled li:before {
     display: inline-block;
     width: 120px;
@@ -540,7 +542,7 @@ a {
     margin: 0 0; padding: 4px 0;
 }
 #team-new ul li {
-    padding: 8px 0;
+    padding: 4px 0;
 }
 #team-new ul li.filled {
     display: block;
@@ -555,14 +557,12 @@ a {
 */
 
 #bug-new textarea {
-    width: 480px;
+    width: 600px;
     height: 100px;
     line-height: 1.5em;
-    margin: 0;
-    padding: 0;
 }
 #bug-new input[name="title"] {
-    width: 480px;
+    width: 600px;
 }
 #bug-new ul {
     width: 100%;
@@ -570,15 +570,17 @@ a {
     padding: 4px 0;
 }
 #bug-new ul li {
+    margin: 0 30px;
     padding: 4px 0;
+    min-width: 350px;
 }
 #bug-new ul li.filled {
     display:block;
 }
-
-
-
-
+#bug-new select {
+    width: 216px;
+    margin: 0;
+}
 
 
 /*
@@ -588,3 +590,40 @@ a {
 *
 ***************************************************************
 */
+#bug-modify textarea {
+    width: 600px;
+    height: 100px;
+    line-height: 1.5em;
+}
+#bug-modify input[name="title"] {
+    width: 600px;
+}
+
+#bug-modify ul {
+    width: 100%;
+    margin: 0;
+    padding: 4px 0;
+}
+#bug-modify ul li {
+    margin: 0 30px;
+    padding: 4px 0;
+    min-width: 260px;
+}
+#bug-modify ul li.filled {
+    display: block;
+}
+
+#bug-modify li p {
+    line-height: 1.3em;
+}
+
+/*
+***************************************************************
+*
+*
+*
+***************************************************************
+*/
+
+
+
