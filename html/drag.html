@@ -13,6 +13,8 @@
             mouseX = e.clientX;
             mouseY = e.clientY;
             isDowm = true;
+            document.onmousemove = mouseMove;
+            document.onmouseup = mouseUp;
         }
         function mouseMove(e) {
             var div = document.getElementById("div1");
@@ -37,14 +39,16 @@
                 div1.style.cursor = "default";
                 isDowm = false;
             }
+            document.onmousemove = null;
+            document.onmouseup = null;
         }
+
     </script>
 </head>
 <body>
 <span id="span1"></span></br><span id="span2"></span></br>
 <div id="div1" style="background-color: Green; border: 1px solid red; height: 300px;
-        top: 100px; left: 100px; width: 300px; position: absolute;" onmousedown="mouseDown(this,event)"
-     onmousemove="mouseMove(event)" onmouseup="mouseUp(event)">
+        top: 100px; left: 100px; width: 300px; position: absolute;" onmousedown="mouseDown(this,event)">
 </div>
 </body>
 </html>
